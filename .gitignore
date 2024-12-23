@@ -52,5 +52,6 @@ Mkfile.old
 dkms.conf
 
 # custom
+push_swap
 build/*
 !build/.gitkeep
