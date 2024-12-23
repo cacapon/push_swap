@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 10:03:51 by ttsubo            #+#    #+#              #
-#    Updated: 2024/12/23 20:19:35 by ttsubo           ###   ########.fr        #
+#    Updated: 2024/12/23 21:51:57 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,10 @@ SRCS	= 	ft_atoi.c     ft_isdigit.c  ft_memmove.c     ft_split.c     ft_strlcpy.c
 			ft_isalpha.c  ft_memcmp.c   ft_putnbr_fd.c   ft_strjoin.c   ft_strnstr.c				\
 			ft_isascii.c  ft_memcpy.c   ft_putstr_fd.c   ft_strlcat.c   ft_strrchr.c				\
 			get_next_line.c	get_next_line_utils.c 													\
-			ft_printf.c	ft_printf_utils1.c ft_printf_utils2.c format_handler.c format_handler2.c
+			ft_printf.c	ft_printf_utils1.c ft_printf_utils2.c format_handler.c format_handler2.c	
 
-BONUS_S = 	ft_lstnew.c	ft_lstadd_front.c	ft_lstsize.c	ft_lstlst.c	ft_lstadd_back.c		\
-			ft_lstdelone.c	ft_lstclear.c	ft_lstiter.c	ft_lstmap.c
+BONUS_S = 	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c	\
+			ft_lstdelone.c	ft_lstclear.c			ft_lstiter.c		ft_lstmap.c
 
 ifeq ($(MAKECMDGOALS), debug)
 	CC := gcc -Wall -Wextra -Werror -g

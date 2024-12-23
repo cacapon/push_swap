@@ -6,12 +6,14 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:32:57 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/23 20:54:33 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/23 22:20:28 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+#include "../lib/libft/libft.h"
 
 // enum
 typedef enum e_stack_type
