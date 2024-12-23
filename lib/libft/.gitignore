@@ -1,3 +1,7 @@
+# Created by https://www.toptal.com/developers/gitignore/api/c
+# Edit at https://www.toptal.com/developers/gitignore?templates=c
+
+### C ###
 # Prerequisites
 *.d
 
@@ -51,7 +55,9 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+# End of https://www.toptal.com/developers/gitignore/api/c
+
 # custom
-push_swap
-build/*
-!build/.gitkeep
+libft.a
+.vscode/
+main.c
