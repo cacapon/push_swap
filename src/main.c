@@ -6,19 +6,16 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:47:52 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/23 22:19:42 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/23 22:21:53 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 int	main(int argc, char **argv)
 {
-	(void) argc;
-	(void) argv;
-
+	(void)argc;
+	(void)argv;
 	ft_printf("test");
-
 	return (0);
 }
