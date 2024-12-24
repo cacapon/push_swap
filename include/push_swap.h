@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:32:57 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/23 22:22:07 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/24 11:52:14 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ typedef enum e_stack_type
 	STACK_B,
 	STACK_BOTH,
 }		t_stack_type;
+
+typedef enum e_psh_swp_sts
+{
+	PSH_SWP_OK,
+	PSH_SWP_NG,
+}		t_psh_swp_sts;
 
 // prototype
 void	swap(int *stack, t_stack_type type);
