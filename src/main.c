@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:47:52 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/24 15:14:28 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/28 18:54:23 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ static t_psh_swp_sts	validate_input(char *input)
 {
 	char	**tokens;
 	int		error;
-	int		value;
 	int		i;
 
 	tokens = ft_split(input, ' ');
@@ -66,7 +65,7 @@ static t_psh_swp_sts	validate_input(char *input)
 	while (tokens[i] != NULL)
 	{
 		error = 0;
-		value = ft_atoi_with_error(tokens[i], &error);
+		ft_atoi_with_error(tokens[i], &error);
 		if (error)
 			return (free_tokens(tokens, i), PSH_SWP_NG);
 		i++;

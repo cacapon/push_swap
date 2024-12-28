@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_handler2.c                                  :+:      :+:    :+:   */
+/*   push_swap_utils.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/28 21:28:40 by ttsubo           ###   ########.fr       */
+/*   Created: 2024/12/28 17:42:01 by ttsubo            #+#    #+#             */
+/*   Updated: 2024/12/28 18:56:13 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "format_handler.h"
+#ifndef PUSH_SWAP_UTILS_H
+# define PUSH_SWAP_UTILS_H
 
-int	handle_ptr(va_list *args)
-{
-	return (ptf_putptr_fd(va_arg(*args, void *), FD_STDOUT));
-}
+#include <stddef.h>
 
-int	handle_lower_hex(va_list *args)
-{
-	return (ptf_puthex_fd(va_arg(*args, unsigned int), FD_STDOUT, HEX_IS_LOWER));
-}
+int	is_in_int(int v, int *arr, size_t size);
 
-int	handle_upper_hex(va_list *args)
-{
-	return (ptf_puthex_fd(va_arg(*args, unsigned int), FD_STDOUT, HEX_IS_UPPER));
-}
+#endif

@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_handler2.c                                  :+:      :+:    :+:   */
+/*   test.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/28 21:28:40 by ttsubo           ###   ########.fr       */
+/*   Created: 2024/12/28 17:52:14 by ttsubo            #+#    #+#             */
+/*   Updated: 2024/12/28 21:58:12 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "format_handler.h"
+#ifndef TEST_H
+# define TEST_H
 
-int	handle_ptr(va_list *args)
-{
-	return (ptf_putptr_fd(va_arg(*args, void *), FD_STDOUT));
-}
+# include "../lib/libft/libft.h"
+# include "push_swap_utils.h"
 
-int	handle_lower_hex(va_list *args)
+typedef enum e_psh_swp_test
 {
-	return (ptf_puthex_fd(va_arg(*args, unsigned int), FD_STDOUT, HEX_IS_LOWER));
-}
+	PSH_SWP_TEST_OK,
+	PSH_SWP_TEST_NG,
+}			t_psh_swp_test;
 
-int	handle_upper_hex(va_list *args)
+typedef struct e_test_result
 {
-	return (ptf_puthex_fd(va_arg(*args, unsigned int), FD_STDOUT, HEX_IS_UPPER));
-}
+	int		ok;
+	int		ng;
+	char	mes[1024];
+}			t_test_result;
+
+void		test_result_output(char *test_name, t_test_result result);
+void		test_is_in_int(t_test_result *result);
+
+#endif

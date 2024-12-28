@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_handler2.c                                  :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/28 21:28:40 by ttsubo           ###   ########.fr       */
+/*   Created: 2024/12/28 17:51:58 by ttsubo            #+#    #+#             */
+/*   Updated: 2024/12/28 21:57:53 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "format_handler.h"
+#include "test.h"
 
-int	handle_ptr(va_list *args)
+void	test_result_output(char *test_name, t_test_result result)
 {
-	return (ptf_putptr_fd(va_arg(*args, void *), FD_STDOUT));
+	ft_printf("%s\t", test_name);
+	ft_printf("OK:%d\tNG:%d\t", result.ok, result.ng);
+	ft_printf("mes:%s\n", result.mes);
 }
 
-int	handle_lower_hex(va_list *args)
+int	main(void)
 {
-	return (ptf_puthex_fd(va_arg(*args, unsigned int), FD_STDOUT, HEX_IS_LOWER));
-}
+	t_test_result	result;
 
-int	handle_upper_hex(va_list *args)
-{
-	return (ptf_puthex_fd(va_arg(*args, unsigned int), FD_STDOUT, HEX_IS_UPPER));
+	result = (t_test_result){.ok = 0, .ng = 0};
+	test_is_in_int(&result);
+	test_result_output("test_is_in_int", result);
 }
