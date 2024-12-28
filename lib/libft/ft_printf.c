@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/23 20:07:11 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/28 21:07:55 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * @return int  : 出力した文字列の長さ
  * @note	pre: %からはじまること
  */
-static int	_format(const char **str, va_list args)
+static int	_format(const char **str, va_list *args)
 {
 	int				count;
 	unsigned char	index;
@@ -40,8 +40,8 @@ static int	_format(const char **str, va_list args)
 	index = (unsigned char)**str;
 	if (index >= MAX_HANDLER || !handlers[index])
 	{
-		count += ptf_putchar_fd('%', 1);
-		count += ptf_putchar_fd(**str, 1);
+		count += ft_putchar_fd('%', 1);
+		count += ft_putchar_fd(**str, 1);
 	}
 	else
 		count += handlers[(unsigned char)**str](args);
@@ -66,9 +66,9 @@ int	ft_printf(const char *str, ...)
 	while (*str)
 	{
 		if (*str == '%')
-			count += _format((str++, &str), args);
+			count += _format((str++, &str), &args);
 		else
-			count += ptf_putchar_fd(*str++, 1);
+			count += ft_putchar_fd(*str++, 1);
 	}
 	va_end(args);
 	return (count);

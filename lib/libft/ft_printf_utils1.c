@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:09:58 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/23 20:06:58 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/08 11:46:56 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * @param fd 		: ファイルディスクリプタ
  * @return size_t	: 文字の長さ(おおよそ1)
  */
-size_t	ptf_putchar_fd(char c, int fd)
+size_t	ft_putchar_fd(char c, int fd)
 {
 	return (write(fd, &c, 1));
 }
@@ -31,7 +31,7 @@ size_t	ptf_putchar_fd(char c, int fd)
  * @param fd 		: ファイルディスクリプタ
  * @return size_t	: 文字列の長さ
  */
-size_t	ptf_putstr_fd(char *s, int fd)
+size_t	ft_putstr_fd(char *s, int fd)
 {
 	size_t	len;
 
@@ -39,7 +39,7 @@ size_t	ptf_putstr_fd(char *s, int fd)
 		return (0);
 	len = 0;
 	while (*s)
-		len += ptf_putchar_fd(*s++, fd);
+		len += ft_putchar_fd(*s++, fd);
 	return (len);
 }
 
@@ -50,7 +50,7 @@ size_t	ptf_putstr_fd(char *s, int fd)
  * @param fd 		: ファイルディスクリプタ
  * @return size_t	: 符号なし数値の長さ
  */
-size_t	ptf_putnum_fd(int n, int fd)
+size_t	ft_putnum_fd(int n, int fd)
 {
 	char			c;
 	size_t			len;
@@ -59,15 +59,15 @@ size_t	ptf_putnum_fd(int n, int fd)
 	len = 0;
 	if (n < 0)
 	{
-		len += ptf_putchar_fd('-', fd);
+		len += ft_putchar_fd('-', fd);
 		abs_num = (unsigned int)(-n);
 	}
 	else
 		abs_num = (unsigned int)n;
 	if (abs_num >= DEC_BASE)
-		len += ptf_putunum_fd(abs_num / DEC_BASE, fd);
+		len += ft_putunum_fd(abs_num / DEC_BASE, fd);
 	c = (abs_num % DEC_BASE) + '0';
-	if (ptf_putchar_fd(c, fd) == 1)
+	if (ft_putchar_fd(c, fd) == 1)
 		len++;
 	return (len);
 }
@@ -79,16 +79,16 @@ size_t	ptf_putnum_fd(int n, int fd)
  * @param fd 		: ファイルディスクリプタ
  * @return size_t	: 符号なし数値の長さ
  */
-size_t	ptf_putunum_fd(unsigned int n, int fd)
+size_t	ft_putunum_fd(unsigned int n, int fd)
 {
 	char	c;
 	size_t	len;
 
 	len = 0;
 	if (n >= DEC_BASE)
-		len += ptf_putunum_fd(n / DEC_BASE, fd);
+		len += ft_putunum_fd(n / DEC_BASE, fd);
 	c = (n % DEC_BASE) + '0';
-	if (ptf_putchar_fd(c, fd) == 1)
+	if (ft_putchar_fd(c, fd) == 1)
 		len++;
 	return (len);
 }
@@ -102,19 +102,19 @@ size_t	ptf_putunum_fd(unsigned int n, int fd)
  * @return char*	: 変換後の文字列の先頭ポインタ
  * @note			: pre: 負の数は呼び出し元で変換すること
  */
-size_t	ptf_puthex_fd(unsigned int n, int fd, int is_upper)
+size_t	ft_puthex_fd(unsigned int n, int fd, int is_upper)
 {
 	char	c;
 	size_t	len;
 
 	len = 0;
 	if (n >= HEX_BASE)
-		len += ptf_puthex_fd(n / HEX_BASE, fd, is_upper);
+		len += ft_puthex_fd(n / HEX_BASE, fd, is_upper);
 	if (is_upper)
 		c = UPPER_HEX[n % HEX_BASE];
 	else
 		c = LOWER_HEX[n % HEX_BASE];
-	if (ptf_putchar_fd(c, fd) == 1)
+	if (ft_putchar_fd(c, fd) == 1)
 		len++;
 	return (len);
 }
