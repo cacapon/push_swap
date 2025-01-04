@@ -6,12 +6,17 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:39 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/04 15:32:29 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/04 16:04:13 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOUBLY_LINKED_LIST_H
 # define DOUBLY_LINKED_LIST_H
+
+# include "../lib/libft/libft.h"
+
+typedef struct e_dll_node	t_dll_node;
+typedef struct e_dll		t_dll;
 
 typedef enum e_dll_sts
 {
@@ -19,33 +24,39 @@ typedef enum e_dll_sts
 	DLL_NG,
 	DLL_EMPTY,
 	DLL_FULL
-}						t_dll_sts;
+}							t_dll_sts;
+
+typedef enum e_dll_direction
+{
+	DLL_SHIFT_UP,
+	DLL_SHIFT_DOWN
+}							t_dll_direction;
 
 typedef struct e_dll_node
 {
-	int					value;
-	struct e_dll_node	*prev;
-	struct e_dll_node	*next;
+	int						value;
+	t_dll_node				*prev;
+	t_dll_node				*next;
 
-}						t_dll_node;
+}							t_dll_node;
 
 typedef struct e_dll
 {
-	t_dll_node			*head;
-	t_dll_node			*tail;
+	t_dll_node				*head;
+	t_dll_node				*tail;
 
-	void				(*add)(int value);
-	t_dll_node			(*pop)(void);
-	void				(*swap)(void);
-	void				(*rotate)(int direction);
-	void				(*free)(void);
-}						t_dll;
+	void					(*add)(t_dll *self, int value);
+	t_dll_node				*(*pop)(t_dll *self);
+	void					(*swap)(t_dll *self);
+	void					(*rotate)(t_dll *self, t_dll_direction direction);
+	void					(*free)(t_dll *self);
+}							t_dll;
 
-t_dll					*init_dll(void);
-void					add_dll(int value);
-t_dll_node				pop_dll(void);
-void					swap_dll(void);
-void					rotate_dll(int direction);
-void					free_dll(void);
+t_dll						*init_dll(void);
+void						add_dll(t_dll *self, int value);
+t_dll_node					pop_dll(t_dll *self);
+void						swap_dll(t_dll *self);
+void						rotate_dll(t_dll *self, t_dll_direction direction);
+void						free_dll(t_dll *self);
 
 #endif
