@@ -6,7 +6,10 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:39 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/04 15:20:40 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/04 15:22:58 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef DOUBLY_LINKED_LIST_H
+# define DOUBLY_LINKED_LIST_H
+#endif
