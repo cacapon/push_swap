@@ -87,20 +87,23 @@ void	rotate_dll(t_dll *self, t_dll_direction direction)
 	}
 }
 
-void	free_dll(t_dll *self)
+void	free_dll(t_dll **self)
 {
+	size_t 		count;
 	t_dll_node	*node;
 	t_dll_node	*next;
 
-	if (!self)
+	if (!self || !(*self))
 		return ;
-	node = self->head;
-	while (node)
+	node = (*self)->head;
+	count = 0;
+	while (count < (*self)->size)
 	{
 		next = node->next;
 		free(node);
 		node = next;
+		count++;
 	}
-	free(self);
-	self = NULL;
+	free(*self);
+	*self = NULL;
 }
