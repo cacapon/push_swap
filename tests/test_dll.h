@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 13:30:56 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/07 15:44:45 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/07 16:58:44 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ void	test_add_dll_one(t_dll *target, t_tests *result);
 void	test_add_dll_multi(t_dll *target, t_tests *result);
 void	test_pop_dll_normal(t_dll *target, t_tests *result);
 void	test_pop_dll_empty(t_dll *target, t_tests *result);
-
+void	test_swap(t_dll *target, t_tests *result);
+void	test_swap_one(t_dll *target, t_tests *result);
+void	test_swap_empty(t_dll *target, t_tests *result);
 #endif
