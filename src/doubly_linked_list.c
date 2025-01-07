@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/07 15:07:08 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/07 16:37:44 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,13 @@ void	add_dll(t_dll *self, int value)
 	node = (t_dll_node *)ft_calloc(sizeof(t_dll_node), 1);
 	node->value = value;
 	if (!self->head)
+	{
 		self->head = node;
-	self->tail = node;
+		self->tail = node;
+	}
+	self->head->prev = node;
+	node->next = self->head;
+	self->tail->next = node;
 	node->prev = self->tail;
 	self->tail = node;
 	self->size++;
