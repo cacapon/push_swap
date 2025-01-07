@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/07 16:51:07 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/07 17:01:30 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ t_dll_node	*pop_dll(t_dll *self)
 
 void	swap_dll(t_dll *self)
 {
-	t_dll_node	*tmp_node;
+	int	tmp;
 
 	if (!self || !self->head || !self->head->next)
 		return ;
-	tmp_node = self->head;
-	self->head = self->head->next;
-	self->head->next = tmp_node;
+	tmp = self->head->value;
+	self->head->value = self->head->next->value;
+	self->head->next->value = tmp;
 }
 
 void	rotate_dll(t_dll *self, t_dll_direction direction)
