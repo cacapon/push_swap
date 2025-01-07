@@ -6,14 +6,14 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/04 16:08:19 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/07 15:07:08 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doubly_linked_list.h"
 
 // TODO 後でいどうさせる
-t_dll	*init_dll(t_dll *self)
+t_dll	*init_dll(void)
 {
 	t_dll	*dll;
 

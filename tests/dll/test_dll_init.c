@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_dll_add.c                                     :+:      :+:    :+:   */
+/*   test_dll_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 14:24:50 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/07 15:39:03 by ttsubo           ###   ########.fr       */
+/*   Created: 2025/01/07 14:41:15 by ttsubo            #+#    #+#             */
+/*   Updated: 2025/01/07 15:39:35 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test_dll.h"
 
-void	test_add_dll_one(t_dll *target, t_tests *result)
+void	test_init_dll(t_dll *target, t_tests *result)
 {
-	target->add(target, 10);
-	if (target->head->value != 10 || target->tail->value != 10)
-		result->result[result->result_len++] = TEST_NG;
-	else
-		result->result[result->result_len++] = TEST_OK;
-}
-
-void	test_add_dll_multi(t_dll *target, t_tests *result)
-{
-	target->add(target, 10);
-	target->add(target, 20);
-	target->add(target, 30);
-	if (target->head->value != 10 || target->tail->value != 30)
+	if (target->head != NULL || target->tail != NULL || target->add == NULL
+		|| target->pop == NULL || target->swap == NULL || target->rotate == NULL
+		|| target->free == NULL)
 		result->result[result->result_len++] = TEST_NG;
 	else
 		result->result[result->result_len++] = TEST_OK;
