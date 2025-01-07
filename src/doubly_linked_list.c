@@ -22,6 +22,7 @@ t_dll	*init_dll(void)
 		return (NULL);
 	dll->head = NULL;
 	dll->tail = NULL;
+	dll->size = 0;
 	dll->add = add_dll;
 	dll->pop = pop_dll;
 	dll->swap = swap_dll;
@@ -40,7 +41,8 @@ void	add_dll(t_dll *self, int value)
 		self->head = node;
 	self->tail = node;
 	node->prev = self->tail;
-	node->next = self->head;
+	self->tail = node;
+	self->size++;
 }
 
 t_dll_node	*pop_dll(t_dll *self)
@@ -54,6 +56,7 @@ t_dll_node	*pop_dll(t_dll *self)
 	self->head->prev = self->tail;
 	node->prev = node;
 	node->next = node;
+	self->size--;
 	return (node);
 }
 

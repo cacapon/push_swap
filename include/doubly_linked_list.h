@@ -44,6 +44,7 @@ typedef struct e_dll
 {
 	t_dll_node				*head;
 	t_dll_node				*tail;
+	size_t					size;
 
 	void					(*add)(t_dll *self, int value);
 	t_dll_node				*(*pop)(t_dll *self);
