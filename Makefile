@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2024/12/23 22:18:39 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/08 10:12:42 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,11 @@ LIBFT		= lib/libft
 OBJS		= $(patsubst $(SRC_DIR)/%.c, $(BLD_DIR)/%.o, $(SRC_DIR)/$(SRC))
 
 all: $(NAME)
+test: $(LIBFT)/libft.a
+	$(CC) tests/dll/*.c \
+		src/doubly_linked_list.c src/doubly_linked_list_methods.c \
+		$(LIBFT)/libft.a -I$(INC) -Itests \
+		-o test.out
 
 $(NAME): $(BLD_DIR)/$(DOT_A) $(LIBFT)/libft.a
 	$(CC) src/main.c $^ -I$(INC) -o $@
@@ -46,4 +51,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re debug
+.PHONY: all clean fclean re debug test
