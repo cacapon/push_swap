@@ -55,4 +55,5 @@ dkms.conf
 push_swap
 build/*
 !build/.gitkeep
-.vscode
+.vscode/*
+/tests/*.out
