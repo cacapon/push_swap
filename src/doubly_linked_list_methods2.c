@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   doubly_linked_list.c                               :+:      :+:    :+:   */
+/*   doubly_linked_list_methods2.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/08 11:50:49 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/08 11:49:56 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doubly_linked_list.h"
 
-t_dll	*init_dll(void)
+/**
+ * @brief valueがDLLの中にあるか調べます
+ *
+ * @param self
+ * @param value
+ * @return int : 0:存在しない 1:存在する
+ * @note :pre self != NULL
+ */
+int	is_in(t_dll *self, int value)
 {
-	t_dll	*dll;
+	size_t		i;
+	t_dll_node	*node;
 
-	dll = (t_dll *)ft_calloc(sizeof(t_dll), 1);
-	if (!dll)
-		return (NULL);
-	dll->head = NULL;
-	dll->tail = NULL;
-	dll->size = 0;
-	dll->add = add_dll;
-	dll->pop = pop_dll;
-	dll->swap = swap_dll;
-	dll->rotate = rotate_dll;
-	dll->free = free_dll;
-	dll->is_in = is_in;
-	return (dll);
+	i = 0;
+	node = self->head;
+	while (i < self->size)
+	{
+		if (value == node->value)
+			return (1);
+		node = node->next;
+		i++;
+	}
+	return (0);
 }
-
