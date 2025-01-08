@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/07 16:51:24 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/08 13:01:08 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ t_dll	*init_dll(void)
 	dll->swap = swap_dll;
 	dll->rotate = rotate_dll;
 	dll->free = free_dll;
+	dll->is_in = is_in;
 	return (dll);
 }

@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_in_int.c                                        :+:      :+:    :+:   */
+/*   doubly_linked_list_methods2.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 17:40:58 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/28 18:16:07 by ttsubo           ###   ########.fr       */
+/*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
+/*   Updated: 2025/01/08 11:49:56 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include "doubly_linked_list.h"
 
 /**
- * @brief vがarrに含まれているかを判定します
+ * @brief valueがDLLの中にあるか調べます
  *
- * @param v		: 含まれているか確認する値
- * @param arr	: 対象の配列
- * @param size	: 配列のサイズ
- * @retval 1	: 含まれている
- * @retval 0	: 含まれていない
+ * @param self
+ * @param value
+ * @return int : 0:存在しない 1:存在する
+ * @note :pre self != NULL
  */
-int	is_in_int(int v, int *arr, size_t size)
+int	is_in(t_dll *self, int value)
 {
-	unsigned int	i;
+	size_t		i;
+	t_dll_node	*node;
 
-	if (!arr)
-		return (0);
 	i = 0;
-	while (i < size)
-		if (v == arr[i++])
+	node = self->head;
+	while (i < self->size)
+	{
+		if (value == node->value)
 			return (1);
+		node = node->next;
+		i++;
+	}
 	return (0);
 }
