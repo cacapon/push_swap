@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   push_swap_utils.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 14:04:33 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/28 21:08:56 by ttsubo           ###   ########.fr       */
+/*   Created: 2024/12/28 17:42:01 by ttsubo            #+#    #+#             */
+/*   Updated: 2024/12/28 18:56:13 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef PUSH_SWAP_UTILS_H
+# define PUSH_SWAP_UTILS_H
 
-# include "format_handler.h"
-# include "ft_printf_utils.h"
-# include "ft_printf_define.h"
-# include <stdarg.h>
+#include <stddef.h>
 
-typedef int	(*t_handler)(va_list *args);
-
-int	ft_printf(const char *str, ...);
+int	is_in_int(int v, int *arr, size_t size);
 
 #endif

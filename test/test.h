@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   test.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 14:04:33 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/28 21:08:56 by ttsubo           ###   ########.fr       */
+/*   Created: 2024/12/28 17:52:14 by ttsubo            #+#    #+#             */
+/*   Updated: 2024/12/28 21:58:12 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef TEST_H
+# define TEST_H
 
-# include "format_handler.h"
-# include "ft_printf_utils.h"
-# include "ft_printf_define.h"
-# include <stdarg.h>
+# include "../lib/libft/libft.h"
+# include "push_swap_utils.h"
 
-typedef int	(*t_handler)(va_list *args);
+typedef enum e_psh_swp_test
+{
+	PSH_SWP_TEST_OK,
+	PSH_SWP_TEST_NG,
+}			t_psh_swp_test;
 
-int	ft_printf(const char *str, ...);
+typedef struct e_test_result
+{
+	int		ok;
+	int		ng;
+	char	mes[1024];
+}			t_test_result;
+
+void		test_result_output(char *test_name, t_test_result result);
+void		test_is_in_int(t_test_result *result);
 
 #endif

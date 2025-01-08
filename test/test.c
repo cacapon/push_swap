@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 14:04:33 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/28 21:08:56 by ttsubo           ###   ########.fr       */
+/*   Created: 2024/12/28 17:51:58 by ttsubo            #+#    #+#             */
+/*   Updated: 2024/12/28 21:57:53 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "test.h"
 
-# include "format_handler.h"
-# include "ft_printf_utils.h"
-# include "ft_printf_define.h"
-# include <stdarg.h>
+void	test_result_output(char *test_name, t_test_result result)
+{
+	ft_printf("%s\t", test_name);
+	ft_printf("OK:%d\tNG:%d\t", result.ok, result.ng);
+	ft_printf("mes:%s\n", result.mes);
+}
 
-typedef int	(*t_handler)(va_list *args);
+int	main(void)
+{
+	t_test_result	result;
 
-int	ft_printf(const char *str, ...);
-
-#endif
+	result = (t_test_result){.ok = 0, .ng = 0};
+	test_is_in_int(&result);
+	test_result_output("test_is_in_int", result);
+}
