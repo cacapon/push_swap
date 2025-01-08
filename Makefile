@@ -6,49 +6,54 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/08 10:12:42 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/08 12:55:55 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= push_swap
 CC 			= cc -Wall -Wextra -Werror
-SRC			= push_swap.c
 
-DOT_A		= $(NAME).a
-INC			= include
-BLD_DIR		= build
-SRC_DIR		= src
-LIBFT		= lib/libft
-OBJS		= $(patsubst $(SRC_DIR)/%.c, $(BLD_DIR)/%.o, $(SRC_DIR)/$(SRC))
+SRC_PATH	= src/
+OBJ_PATH	= build/
+LIBFT_PATH	= lib/libft/
 
-all: $(NAME)
-test: $(LIBFT)/libft.a
-	$(CC) tests/dll/*.c \
-		src/doubly_linked_list.c src/doubly_linked_list_methods.c \
-		$(LIBFT)/libft.a -I$(INC) -Itests \
-		-o test.out
+SRC_MAIN	= 	main.c push_swap.c
+SRC_DLL		= 	doubly_linked_list.c doubly_linked_list_methods.c doubly_linked_list_methods2.c
+SRC			=	$(SRC_MAIN) $(SRC_DLL)
+SRCS		= $(addprefix $(SRC_PATH, $(SRC))
+OBJ			= $(SRC:.c=.o)
+OBJS		= $(addprefix $(OBJ_PATH), $(OBJ))
+INCS		= -I ./include
+T_INCS		= -I ./tests
+LIBFT		= libft.a
 
-$(NAME): $(BLD_DIR)/$(DOT_A) $(LIBFT)/libft.a
-	$(CC) src/main.c $^ -I$(INC) -o $@
+all: $(OBJ_PATH) $(NAME)
 
-$(BLD_DIR)/$(DOT_A): $(OBJS)
-	ar rcs $@ $^
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	$(CC) -c $< -o $@ $(INCS)
 
-$(BLD_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) -c $< -I$(INC) -o $@ 
+$(OBJ_PATH):
+	mkdir $(OBJ_PATH)
 
-$(LIBFT)/libft.a:
-	$(MAKE) -C $(LIBFT) bonus
+$(NAME): $(OBJS) $(LIBFT_PATH)$(LIBFT)
+	$(CC) $^ -o $@
+
+$(LIBFT_PATH)$(LIBFT):
+	$(MAKE) -C $(LIBFT_PATH) bonus
 
 clean:
 	rm -f $(OBJS)
-	rm -f $(BLD_DIR)/$(DOT_A) 
-	$(MAKE) -C $(LIBFT) clean
+	$(MAKE) -C $(LIBFT_PATH) clean
 
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) -C $(LIBFT) fclean
+	$(MAKE) -C $(LIBFT_PATH) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re debug test
+test_dll: $(LIBFT_PATH)$(LIBFT)
+	$(CC) tests/dll/*.c \
+		$(addprefix $(SRC_PATH), $(SRC_DLL)) \
+		$(LIBFT_PATH)$(LIBFT) $(INCS) $(T_INCS) -o $@.out
+
+.PHONY: all clean fclean re test
