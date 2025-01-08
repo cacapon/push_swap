@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:38:19 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/07 16:58:57 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/08 11:15:58 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,9 @@ int	main(void)
 	run(test_swap, result);
 	run(test_swap_one, result);
 	run(test_swap_empty, result);
+	run(test_rotate_up, result);
+	run(test_rotate_down, result);
+	run(test_rotate_one, result);
+	run(test_rotate_empty, result);
 	show(result);
 }

@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/07 17:01:30 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/08 11:22:52 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	swap_dll(t_dll *self)
 
 void	rotate_dll(t_dll *self, t_dll_direction direction)
 {
-	if (!self)
+	if (!self || !self->head || !self->tail)
 		return ;
 	if (direction == DLL_SHIFT_UP)
 	{
