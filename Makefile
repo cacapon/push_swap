@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/08 12:55:55 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/08 13:55:17 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC_PATH	= src/
 OBJ_PATH	= build/
 LIBFT_PATH	= lib/libft/
 
-SRC_MAIN	= 	main.c push_swap.c
+SRC_MAIN	= 	main.c push_swap.c push_swap_util.c
 SRC_DLL		= 	doubly_linked_list.c doubly_linked_list_methods.c doubly_linked_list_methods2.c
 SRC			=	$(SRC_MAIN) $(SRC_DLL)
 SRCS		= $(addprefix $(SRC_PATH, $(SRC))
