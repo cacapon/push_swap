@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/08 11:22:52 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/09 21:59:27 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	add_dll(t_dll *self, int value)
 	self->tail->next = node;
 	node->prev = self->tail;
 	self->tail = node;
-	self->size++;
 }
 
 t_dll_node	*pop_dll(t_dll *self)
@@ -42,7 +41,6 @@ t_dll_node	*pop_dll(t_dll *self)
 	self->head->prev = self->tail;
 	node->prev = node;
 	node->next = node;
-	self->size--;
 	return (node);
 }
 
@@ -75,20 +73,21 @@ void	rotate_dll(t_dll *self, t_dll_direction direction)
 
 void	free_dll(t_dll **self)
 {
-	size_t		count;
 	t_dll_node	*node;
 	t_dll_node	*next;
+	t_dll_node	*start;
 
 	if (!self || !(*self))
 		return ;
 	node = (*self)->head;
-	count = 0;
-	while (count < (*self)->size)
+	start = node;
+	while (node)
 	{
 		next = node->next;
 		free(node);
+		if (next == start)
+			break;
 		node = next;
-		count++;
 	}
 	free(*self);
 	*self = NULL;
