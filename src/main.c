@@ -16,7 +16,6 @@ static t_dll	*_init_stack(void)
 {
 	t_dll	*stack;
 
-	stack = ft_calloc(sizeof(t_dll), 1);
 	stack = init_dll();
 	return (stack);
 }
