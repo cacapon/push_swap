@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:47:52 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/09 20:53:18 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/09 21:43:12 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static t_dll	*_init_stack(void)
 {
 	t_dll	*stack;
 
-	stack = ft_calloc(sizeof(t_dll), 1);
 	stack = init_dll();
 	return (stack);
 }
@@ -39,10 +38,10 @@ static t_push_swap_err	_setup_stack_a(int argc, char **argv, t_dll **stack)
 	return (PSW_OK);
 }
 
-static void	_free_stacks(t_dll *stack_a, t_dll *stack_b)
+static void	_free_stacks(t_dll **stack_a, t_dll **stack_b)
 {
-	stack_a->free(&stack_a);
-	stack_b->free(&stack_b);
+	(*stack_a)->free(stack_a);
+	(*stack_b)->free(stack_b);
 }
 
 int	main(int argc, char **argv)
@@ -55,6 +54,6 @@ int	main(int argc, char **argv)
 	stack_a = _init_stack();
 	stack_b = _init_stack();
 	if (_setup_stack_a(argc, argv, &stack_a) != PSW_OK)
-		return (_free_stacks(stack_a, stack_b), ft_printf("Error\n"), 1);
-	return (_free_stacks(stack_a, stack_b), 0);
+		return (_free_stacks(&stack_a, &stack_b), ft_printf("Error\n"), 1);
+	return (_free_stacks(&stack_a, &stack_b), 0);
 }

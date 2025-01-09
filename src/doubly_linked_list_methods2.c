@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/08 11:49:56 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/09 21:58:47 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,23 @@
  * @param self
  * @param value
  * @return int : 0:存在しない 1:存在する
- * @note :pre self != NULL
  */
 int	is_in(t_dll *self, int value)
 {
-	size_t		i;
 	t_dll_node	*node;
+	t_dll_node	*start;
 
-	i = 0;
+	if (!self)
+		return (0);
 	node = self->head;
-	while (i < self->size)
+	start = node;
+	while (node)
 	{
 		if (value == node->value)
 			return (1);
 		node = node->next;
-		i++;
+		if (node == start)
+			break;
 	}
 	return (0);
 }

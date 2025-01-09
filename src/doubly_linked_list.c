@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/08 13:01:08 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/09 21:59:25 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ t_dll	*init_dll(void)
 		return (NULL);
 	dll->head = NULL;
 	dll->tail = NULL;
-	dll->size = 0;
 	dll->add = add_dll;
 	dll->pop = pop_dll;
 	dll->swap = swap_dll;
