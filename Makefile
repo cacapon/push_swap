@@ -6,12 +6,15 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/08 13:55:17 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/09 21:33:41 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= push_swap
 CC 			= cc -Wall -Wextra -Werror
+ifeq ($(MAKECMDGOALS), debug)
+	CC := gcc -Wall -Wextra -Werror -g
+endif
 
 SRC_PATH	= src/
 OBJ_PATH	= build/
@@ -27,7 +30,8 @@ INCS		= -I ./include
 T_INCS		= -I ./tests
 LIBFT		= libft.a
 
-all: $(OBJ_PATH) $(NAME)
+all:  $(OBJ_PATH) $(NAME)
+debug: $(OBJ_PATH) $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	$(CC) -c $< -o $@ $(INCS)
@@ -56,4 +60,4 @@ test_dll: $(LIBFT_PATH)$(LIBFT)
 		$(addprefix $(SRC_PATH), $(SRC_DLL)) \
 		$(LIBFT_PATH)$(LIBFT) $(INCS) $(T_INCS) -o $@.out
 
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re debug test
