@@ -57,3 +57,4 @@ build/*
 !build/.gitkeep
 .vscode/*
 /tests/*.out
+checker
