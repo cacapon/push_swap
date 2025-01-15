@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 18:23:44 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 18:58:46 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ void	bubble_sort(t_dll *stack_a)
 {
 	t_dll_node *head;
 	t_dll_node *node;
-	// headを覚えておく
-	// 一巡交換する
-	// 並び替え確認
+	
 	head = stack_a->head;
 	while (!_is_ascending(stack_a))
 	{
