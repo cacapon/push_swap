@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:32:57 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/08 13:53:49 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 17:42:16 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,5 @@ void	push(int *from_stack, int *to_stack, t_stack_type type);
 void	rotate(int *stack, t_stack_type type);
 void	rv_rotate(int *stack, t_stack_type type);
 
+void	bubble_sort(t_dll *stack_a);
 #endif

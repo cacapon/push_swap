@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:39 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/09 21:59:52 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 18:57:09 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct e_dll
 	t_dll_node				*tail;
 
 	void					(*add)(t_dll *self, int value);
+	void					(*append)(t_dll *self, int value);
 	t_dll_node				*(*pop)(t_dll *self);
 	void					(*swap)(t_dll *self);
 	void					(*rotate)(t_dll *self, t_dll_direction direction);
@@ -58,6 +59,7 @@ t_dll						*init_dll(void);
 
 // methods
 void						add_dll(t_dll *self, int value);
+void						append_dll(t_dll *self, int value);
 t_dll_node					*pop_dll(t_dll *self);
 void						swap_dll(t_dll *self);
 void						rotate_dll(t_dll *self, t_dll_direction direction);

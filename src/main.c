@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:47:52 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/09 21:43:12 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 18:58:09 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static t_push_swap_err	_setup_stack_a(int argc, char **argv, t_dll **stack)
 		value = ft_atoi_with_error(argv[i++], &error);
 		if (error != PSW_OK || (*stack)->is_in((*stack), value))
 			return (error);
-		(*stack)->add((*stack), value);
+		(*stack)->append((*stack), value);
 	}
 	return (PSW_OK);
 }
@@ -55,5 +55,6 @@ int	main(int argc, char **argv)
 	stack_b = _init_stack();
 	if (_setup_stack_a(argc, argv, &stack_a) != PSW_OK)
 		return (_free_stacks(&stack_a, &stack_b), ft_printf("Error\n"), 1);
+	bubble_sort(stack_a);
 	return (_free_stacks(&stack_a, &stack_b), 0);
 }

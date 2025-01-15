@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   doubly_linked_list.c                               :+:      :+:    :+:   */
+/*   rotate_dll.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/09 21:59:25 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 16:23:15 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doubly_linked_list.h"
 
-t_dll	*init_dll(void)
+/**
+ * @brief 双方向リストをdirectionの方向に回転させます
+ * 
+ * @param self 
+ * @param direction
+ * @note	ノードが無い場合は何もしません
+ */
+void	rotate_dll(t_dll *self, t_dll_direction direction)
 {
-	t_dll	*dll;
-
-	dll = (t_dll *)ft_calloc(sizeof(t_dll), 1);
-	if (!dll)
-		return (NULL);
-	dll->head = NULL;
-	dll->tail = NULL;
-	dll->add = add_dll;
-	dll->pop = pop_dll;
-	dll->swap = swap_dll;
-	dll->rotate = rotate_dll;
-	dll->free = free_dll;
-	dll->is_in = is_in;
-	return (dll);
+	if (!self || !self->head || !self->tail)
+		return ;
+	if (direction == DLL_SHIFT_UP)
+	{
+		self->head = self->head->next;
+		self->tail = self->tail->next;
+	}
+	else if (direction == DLL_SHIFT_DOWN)
+	{
+		self->head = self->head->prev;
+		self->tail = self->tail->prev;
+	}
 }

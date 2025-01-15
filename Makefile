@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/09 21:33:41 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/15 18:57:46 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,31 +16,34 @@ ifeq ($(MAKECMDGOALS), debug)
 	CC := gcc -Wall -Wextra -Werror -g
 endif
 
-SRC_PATH	= src/
-OBJ_PATH	= build/
-LIBFT_PATH	= lib/libft/
+SRC_PATH		= src/
+SRC_DLL_PATH	= src/dll/
+SRC_LOGIC_PATH	= src/logic/
+OBJ_PATH		= build/
+LIBFT_PATH		= lib/libft/
 
-SRC_MAIN	= 	main.c push_swap.c push_swap_util.c
-SRC_DLL		= 	doubly_linked_list.c doubly_linked_list_methods.c doubly_linked_list_methods2.c
-SRC			=	$(SRC_MAIN) $(SRC_DLL)
-SRCS		= $(addprefix $(SRC_PATH, $(SRC))
-OBJ			= $(SRC:.c=.o)
-OBJS		= $(addprefix $(OBJ_PATH), $(OBJ))
+SRC_MAIN	= main.c push_swap.c push_swap_util.c
+SRC_DLL		= add_dll.c append_dll.c free_dll.c init_dll.c is_in_dll.c pop_dll.c rotate_dll.c swap_dll.c 
+SRC_LOGIC	= bubble_sort.c
+SRCS		= 	$(addprefix $(SRC_PATH), $(SRC_MAIN)) \
+				$(addprefix $(SRC_DLL_PATH), $(SRC_DLL)) \
+				$(addprefix $(SRC_LOGIC_PATH), $(SRC_LOGIC))
+
+OBJS		= $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
+
 INCS		= -I ./include
 T_INCS		= -I ./tests
 LIBFT		= libft.a
 
-all:  $(OBJ_PATH) $(NAME)
-debug: $(OBJ_PATH) $(NAME)
-
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	$(CC) -c $< -o $@ $(INCS)
-
-$(OBJ_PATH):
-	mkdir $(OBJ_PATH)
+all:  $(NAME)
+debug: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT_PATH)$(LIBFT)
 	$(CC) $^ -o $@
+
+$(OBJ_PATH)%.o: %.c
+	mkdir -p $(dir $@)
+	$(CC) -c $< -o $@ $(INCS)
 
 $(LIBFT_PATH)$(LIBFT):
 	$(MAKE) -C $(LIBFT_PATH) bonus
@@ -56,8 +59,8 @@ fclean: clean
 re: fclean all
 
 test_dll: $(LIBFT_PATH)$(LIBFT)
-	$(CC) tests/dll/*.c \
-		$(addprefix $(SRC_PATH), $(SRC_DLL)) \
+	$(CC) -g tests/dll/*.c \
+		$(addprefix $(SRC_DLL_PATH), $(SRC_DLL)) \
 		$(LIBFT_PATH)$(LIBFT) $(INCS) $(T_INCS) -o $@.out
 
 .PHONY: all clean fclean re debug test

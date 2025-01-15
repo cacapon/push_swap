@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   doubly_linked_list_methods2.c                      :+:      :+:    :+:   */
+/*   add_dll.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/09 21:58:47 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 17:21:00 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doubly_linked_list.h"
 
 /**
- * @brief valueがDLLの中にあるか調べます
- *
- * @param self
+ * @brief 双方向リストの先頭にノードを追加します
+ * 
+ * @param self 
  * @param value
- * @return int : 0:存在しない 1:存在する
  */
-int	is_in(t_dll *self, int value)
+void	add_dll(t_dll *self, int value)
 {
 	t_dll_node	*node;
-	t_dll_node	*start;
 
-	if (!self)
-		return (0);
-	node = self->head;
-	start = node;
-	while (node)
+	node = (t_dll_node *)ft_calloc(sizeof(t_dll_node), 1);
+	node->value = value;
+	if (!self->head)
 	{
-		if (value == node->value)
-			return (1);
-		node = node->next;
-		if (node == start)
-			break;
+		self->head = node;
+		self->tail = node;
 	}
-	return (0);
+	node->next = self->head;
+	node->prev = self->tail;
+	self->head->prev = node;
+	self->tail->next = node;
+	self->head = node;
 }
