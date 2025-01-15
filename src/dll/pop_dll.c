@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   doubly_linked_list_methods2.c                      :+:      :+:    :+:   */
+/*   pop_dll.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/09 21:58:47 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 16:23:15 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doubly_linked_list.h"
 
 /**
- * @brief valueがDLLの中にあるか調べます
- *
- * @param self
- * @param value
- * @return int : 0:存在しない 1:存在する
+ * @brief 双方向リストの先頭要素を取り出します
+ * 
+ * @param self 
+ * @return t_dll_node*
+ * @note	ノードが無い場合はNULLを返します
  */
-int	is_in(t_dll *self, int value)
+t_dll_node	*pop_dll(t_dll *self)
 {
 	t_dll_node	*node;
-	t_dll_node	*start;
 
-	if (!self)
-		return (0);
+	if (!self->head)
+		return (NULL);
 	node = self->head;
-	start = node;
-	while (node)
-	{
-		if (value == node->value)
-			return (1);
-		node = node->next;
-		if (node == start)
-			break;
-	}
-	return (0);
+	self->head = self->head->next;
+	self->head->prev = self->tail;
+	node->prev = node;
+	node->next = node;
+	return (node);
 }
