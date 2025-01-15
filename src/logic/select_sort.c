@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 21:23:02 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 21:32:55 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ static int	_get_min_index(t_dll *stack, t_dll_direction dir)
 			node = node->next;
 		if (node == stack->head)
 			break ;
+		index++;
 	}
 	return (min_index);
 }
@@ -102,9 +103,9 @@ void	select_sort(t_dll *stack_a, t_dll *stack_b)
 		min_index_r = _get_min_index(stack_a, DLL_SHIFT_DOWN);
 		min_index_l = _get_min_index(stack_a, DLL_SHIFT_UP);
 		if (min_index_r < min_index_l)
-			_rotate(stack_a, DLL_SHIFT_DOWN, min_index_r);
+			_rotate(stack_a, DLL_SHIFT_UP, min_index_r);
 		else
-			_rotate(stack_a, DLL_SHIFT_UP, min_index_l);
+			_rotate(stack_a, DLL_SHIFT_DOWN, min_index_l);
 		_push_b(stack_b, stack_a);
 	}
 	while (stack_b->head)
