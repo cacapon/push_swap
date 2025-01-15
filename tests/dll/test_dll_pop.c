@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:24:50 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 20:01:10 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 20:42:06 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,17 @@ void	test_pop_dll_empty(t_dll *target, t_tests *result)
 		result->result[result->result_len++] = TEST_NG;
 	else
 		result->result[result->result_len++] = TEST_OK;
+}
+
+void	test_pop_dll_run()
+{
+	t_tests	*result;
+
+	result = test_result_init("test_pop_dll");
+	if (!result)
+		return ;
+	test_dll_run(test_pop_dll_normal, result);
+	test_dll_run(test_pop_dll_lastone, result);
+	test_dll_run(test_pop_dll_empty, result);
+	result->show(result);
 }

@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:09:42 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 20:30:10 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 20:42:21 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct e_tests
 	char				name[32];
 	char				result[256];
 	size_t				result_len;
+
 
 	void				(*show)(t_tests *self);
 	void				(*set_name)(t_tests *self, char *name);
