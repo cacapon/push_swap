@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:24:50 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/07 15:44:07 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 17:26:13 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	test_pop_dll_normal(t_dll *target, t_tests *result)
 	target->add(target, 20);
 	target->add(target, 30);
 	get_node = target->pop(target);
-	if (get_node->value != 10)
-		result->result[result->result_len++] = TEST_NG;
-	else
+	if (get_node->value == 30)
 		result->result[result->result_len++] = TEST_OK;
+	else
+		result->result[result->result_len++] = TEST_NG;
 }
 
 void	test_pop_dll_empty(t_dll *target, t_tests *result)

@@ -6,19 +6,20 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:24:50 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/07 17:04:30 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 17:25:29 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test_dll.h"
 
+// 30-20-10 -> 20-30-10
 void	test_swap(t_dll *target, t_tests *result)
 {
 	target->add(target, 10);
 	target->add(target, 20);
 	target->add(target, 30);
 	target->swap(target);
-	if (target->head->value == 20 && target->head->next->value == 10)
+	if (target->head->value == 20 && target->head->next->value == 30)
 		result->result[result->result_len++] = TEST_OK;
 	else
 		result->result[result->result_len++] = TEST_NG;
