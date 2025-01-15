@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 13:30:56 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 20:43:11 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 20:45:39 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ void	test_dll_run(void (*test)(t_dll *t, t_tests *r), t_tests *result);
 void	test_init_dll_run();
 void	test_add_dll_run();
 void	test_pop_dll_run();
+void	test_swap_dll_run();
 
-void	test_swap(t_dll *target, t_tests *result);
-void	test_swap_one(t_dll *target, t_tests *result);
-void	test_swap_empty(t_dll *target, t_tests *result);
 void	test_rotate_up(t_dll *target, t_tests *result);
 void	test_rotate_down(t_dll *target, t_tests *result);
 void	test_rotate_one(t_dll *target, t_tests *result);
