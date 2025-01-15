@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:38:19 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 20:26:42 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 20:35:31 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	main(void)
 {
+	test_init_dll_run();
 	test_add_dll_run();
 	// run(test_init_dll, result);
 	// run(test_add_dll_one, result);
