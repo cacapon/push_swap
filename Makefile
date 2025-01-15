@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/15 16:54:43 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/15 17:44:00 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,16 @@ endif
 
 SRC_PATH		= src/
 SRC_DLL_PATH	= src/dll/
+SRC_LOGIC_PATH	= src/logic/
 OBJ_PATH		= build/
 LIBFT_PATH		= lib/libft/
 
 SRC_MAIN	= main.c push_swap.c push_swap_util.c
 SRC_DLL		= add_dll.c free_dll.c init_dll.c is_in_dll.c pop_dll.c rotate_dll.c swap_dll.c 
+SRC_LOGIC	= bubble_sort.c
 SRCS		= 	$(addprefix $(SRC_PATH), $(SRC_MAIN)) \
-				$(addprefix $(SRC_DLL_PATH), $(SRC_DLL))
+				$(addprefix $(SRC_DLL_PATH), $(SRC_DLL)) \
+				$(addprefix $(SRC_LOGIC_PATH), $(SRC_LOGIC))
 
 OBJS		= $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
 
