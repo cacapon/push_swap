@@ -6,56 +6,107 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 20:54:57 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 21:23:02 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	_swap(t_dll *stack_a)
+/**
+ * @brief bの先頭の要素を取り出してaの先頭に置きます。
+ *
+ * @param stack_a
+ * @param stack_b
+ */
+static void	_push_a(t_dll *stack_a, t_dll *stack_b)
 {
-	int	tmp;
+	t_dll_node	*pop_node;
 
-	ft_printf("sa\n");
-	if (!stack_a)
+	ft_printf("pa\n");
+	pop_node = stack_b->pop(stack_b);
+	if (!pop_node)
 		return ;
-	tmp = stack_a->head->value;
-	stack_a->head->value = stack_a->head->next->value;
-	stack_a->head->next->value = tmp;
+	stack_a->add(stack_a, pop_node->value);
+	free(pop_node);
 }
 
-static void	_rotate_a(t_dll *stack_a)
+/**
+ * @brief aの先頭の要素を取り出してbの先頭に置きます
+ *
+ * @param stack_b
+ * @param stack_a
+ */
+static void	_push_b(t_dll *stack_b, t_dll *stack_a)
 {
-	ft_printf("ra\n");
-	stack_a->rotate(stack_a, DLL_SHIFT_UP);
+	t_dll_node	*pop_node;
+
+	ft_printf("pb\n");
+	pop_node = stack_a->pop(stack_a);
+	if (!pop_node)
+		return ;
+	stack_b->add(stack_b, pop_node->value);
+	free(pop_node);
 }
 
-static int	_is_ascending(t_dll *dll)
+static int	_get_min_index(t_dll *stack, t_dll_direction dir)
 {
+	int			min;
+	int			index;
+	int			min_index;
 	t_dll_node	*node;
 
-	node = dll->head;
-	while (node && node->next != dll->head)
+	index = 0;
+	min_index = -1;
+	min = INT_MAX;
+	node = stack->head;
+	while (1)
 	{
-		if (node->value > node->next->value)
-			return (0);
-		node = node->next;
+		if (node->value < min)
+		{
+			min = node->value;
+			min_index = index;
+		}
+		if (dir == DLL_SHIFT_UP)
+			node = node->prev;
+		else
+			node = node->next;
+		if (node == stack->head)
+			break ;
 	}
-	return (1);
+	return (min_index);
+}
+
+static void _rotate(t_dll *stack_a, t_dll_direction dir, int count)
+{
+	int i;
+
+	i = 0;
+	while (i < count)
+	{
+		if (dir == DLL_SHIFT_UP)
+			ft_printf("ra\n");
+		else
+			ft_printf("rra\n");
+		stack_a->rotate(stack_a, dir);
+		i++;
+	}
 }
 
 void	select_sort(t_dll *stack_a, t_dll *stack_b)
 {
 	int	min_index_l;
 	int	min_index_r;
-	
-	// stack_aがカラになるまで
-		// 左右の最小値の位置を探す
-		// 短い方にrotateする
-		// bにプッシュ
-	// aにプッシュ
+
 	while (stack_a->head)
 	{
-		
+		min_index_r = _get_min_index(stack_a, DLL_SHIFT_DOWN);
+		min_index_l = _get_min_index(stack_a, DLL_SHIFT_UP);
+		if (min_index_r < min_index_l)
+			_rotate(stack_a, DLL_SHIFT_DOWN, min_index_r);
+		else
+			_rotate(stack_a, DLL_SHIFT_UP, min_index_l);
+		_push_b(stack_b, stack_a);
 	}
+	while (stack_b->head)
+		_push_a(stack_a, stack_b);
 }
