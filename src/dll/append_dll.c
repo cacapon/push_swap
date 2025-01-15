@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 19:00:54 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 20:55:23 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 /**
  * @brief 双方向リストの末端にノードを追加します
- * 
- * @param self 
+ *
+ * @param self
  * @param value
  */
 void	append_dll(t_dll *self, int value)
@@ -29,7 +29,6 @@ void	append_dll(t_dll *self, int value)
 		self->head = node;
 		self->tail = node;
 	}
-
 	self->head->prev = node;
 	node->next = self->head;
 	self->tail->next = node;

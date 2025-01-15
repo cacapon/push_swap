@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 18:58:46 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 20:54:30 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,19 @@ static int	_is_ascending(t_dll *dll)
 
 void	bubble_sort(t_dll *stack_a)
 {
-	t_dll_node *head;
-	t_dll_node *node;
-	
+	t_dll_node	*head;
+	t_dll_node	*node;
+
 	head = stack_a->head;
 	while (!_is_ascending(stack_a))
 	{
-		while(1)
+		while (1)
 		{
 			node = stack_a->head;
 			if (node->next == head)
 			{
 				_rotate_a(stack_a);
-				break;
+				break ;
 			}
 			if (node->value > node->next->value)
 				_swap(stack_a);

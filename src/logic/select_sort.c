@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 20:29:05 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 20:54:57 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	_is_ascending(t_dll *dll)
 void	select_sort(t_dll *stack_a, t_dll *stack_b)
 {
 	int	min_index_l;
-	int min_index_r;
+	int	min_index_r;
 	
 	// stack_aがカラになるまで
 		// 左右の最小値の位置を探す
@@ -55,5 +55,7 @@ void	select_sort(t_dll *stack_a, t_dll *stack_b)
 		// bにプッシュ
 	// aにプッシュ
 	while (stack_a->head)
-
+	{
+		
+	}
 }
