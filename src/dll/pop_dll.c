@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 16:23:15 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 17:09:32 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_dll_node	*pop_dll(t_dll *self)
 	node = self->head;
 	self->head = self->head->next;
 	self->head->prev = self->tail;
+	self->tail->next = self->head;
 	node->prev = node;
 	node->next = node;
 	return (node);

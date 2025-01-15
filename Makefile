@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/15 16:48:46 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/15 16:54:43 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ fclean: clean
 re: fclean all
 
 test_dll: $(LIBFT_PATH)$(LIBFT)
-	$(CC) tests/dll/*.c \
+	$(CC) -g tests/dll/*.c \
 		$(addprefix $(SRC_DLL_PATH), $(SRC_DLL)) \
 		$(LIBFT_PATH)$(LIBFT) $(INCS) $(T_INCS) -o $@.out
 
