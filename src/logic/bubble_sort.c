@@ -6,29 +6,11 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 18:58:46 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/16 16:49:05 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	_swap(t_dll *stack_a)
-{
-	int	tmp;
-
-	ft_printf("sa\n");
-	if (!stack_a)
-		return ;
-	tmp = stack_a->head->value;
-	stack_a->head->value = stack_a->head->next->value;
-	stack_a->head->next->value = tmp;
-}
-
-static void	_rotate_a(t_dll *stack_a)
-{
-	ft_printf("ra\n");
-	stack_a->rotate(stack_a, DLL_SHIFT_UP);
-}
 
 static int	_is_ascending(t_dll *dll)
 {
@@ -57,12 +39,12 @@ void	bubble_sort(t_dll *stack_a)
 			node = stack_a->head;
 			if (node->next == head)
 			{
-				_rotate_a(stack_a);
+				ra(stack_a);
 				break;
 			}
 			if (node->value > node->next->value)
-				_swap(stack_a);
-			_rotate_a(stack_a);
+				sa(stack_a);
+			ra(stack_a);
 		}
 	}
 }
