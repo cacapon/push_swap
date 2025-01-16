@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/16 16:20:30 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/16 17:01:52 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,10 @@
 
 void	select_insert_sort(t_dll *stack_a, t_dll *stack_b)
 {
-	// 
+	// すべての要素の移動量の最小を見つける
+	t_dll_node *a_node;
+	t_dll_node *b_node;
+
+	//WIP aの最小の移動量の見つけ方
+	//WIP ｘに対するbの最小の移動量の見つけ方
 }
