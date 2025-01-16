@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:32:57 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 17:42:16 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/16 16:45:03 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,16 @@ typedef enum e_push_swap_err
 // prototype
 
 int		ft_atoi_with_error(const char *str, t_push_swap_err *error);
-void	swap(int *stack, t_stack_type type);
-void	push(int *from_stack, int *to_stack, t_stack_type type);
-void	rotate(int *stack, t_stack_type type);
-void	rv_rotate(int *stack, t_stack_type type);
-
+void	pa(t_dll *stack_a, t_dll *stack_b);
+void	pb(t_dll *stack_b, t_dll *stack_a);
+void	ra(t_dll *stack_a);
+void	rb(t_dll *stack_b);
+void	rr(t_dll *stack_a, t_dll *stack_b);
+void	rra(t_dll *stack_a);
+void	rrb(t_dll *stack_b);
+void	rrr(t_dll *stack_a, t_dll *stack_b);
+void	sa(t_dll *stack_a);
+void	sb(t_dll *stack_b);
+void	ss(t_dll *stack_a, t_dll *stack_b);
 void	bubble_sort(t_dll *stack_a);
 #endif
