@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 16:23:15 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 20:55:34 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	is_in(t_dll *self, int value)
 			return (1);
 		node = node->next;
 		if (node == start)
-			break;
+			break ;
 	}
 	return (0);
 }

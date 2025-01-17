@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_dll.c                                         :+:      :+:    :+:   */
+/*   test_result_show.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 15:38:19 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 20:48:16 by ttsubo           ###   ########.fr       */
+/*   Created: 2025/01/15 20:11:07 by ttsubo            #+#    #+#             */
+/*   Updated: 2025/01/15 20:53:22 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test_dll.h"
+#include "test_result.h"
 
-void	test_dll_run(void (*test)(t_dll *t, t_tests *r), t_tests *result)
+void	test_result_show(t_tests *result)
 {
-	t_dll	*target;
+	int	i;
 
-	target = init_dll();
-	test(target, result);
-	target->free(&target);
-}
-
-int	main(void)
-{
-	test_init_dll_run();
-	test_add_dll_run();
-	test_pop_dll_run();
-	test_swap_dll_run();
-	test_rotate_dll_run();
+	i = 0;
+	ft_printf("%s:\t", result->name);
+	while (result->result[i])
+	{
+		if (result->result[i] == TEST_OK)
+			ft_printf("\033[32m%c\033[0m", result->result[i]);
+		else
+			ft_printf("\033[31m%c\033[0m", result->result[i]);
+		i++;
+	}
+	ft_printf("\n");
 }
