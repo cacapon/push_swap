@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/16 16:47:29 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/17 14:58:41 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ LIBFT_PATH		= lib/libft/
 
 SRC_MAIN	= main.c push_swap_util.c
 SRC_DLL		= add_dll.c append_dll.c free_dll.c init_dll.c is_in_dll.c pop_dll.c rotate_dll.c swap_dll.c 
-SRC_LOGIC	= bubble_sort.c
+SRC_LOGIC	= bubble_sort.c select_sort.c
 SRC_CMD		= push.c rotate.c rv_rotate.c swap.c
 SRCS		= 	$(addprefix $(SRC_PATH), $(SRC_MAIN)) \
 				$(addprefix $(SRC_DLL_PATH), $(SRC_DLL)) \
@@ -37,7 +37,7 @@ $(info $(SRCS))
 OBJS		= $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
 
 INCS		= -I ./include
-T_INCS		= -I ./tests
+T_INCS		= -I ./tests/include
 LIBFT		= libft.a
 
 all:  $(NAME)
@@ -64,7 +64,7 @@ fclean: clean
 re: fclean all
 
 test_dll: $(LIBFT_PATH)$(LIBFT)
-	$(CC) -g tests/dll/*.c \
+	$(CC) -g tests/dll/*.c tests/test_result/*.c \
 		$(addprefix $(SRC_DLL_PATH), $(SRC_DLL)) \
 		$(LIBFT_PATH)$(LIBFT) $(INCS) $(T_INCS) -o $@.out
 

@@ -6,14 +6,14 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:24:50 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 17:24:46 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 20:54:06 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test_dll.h"
 
-// 30-20-10 -> 20-10-30 
-void	test_rotate_up(t_dll *target, t_tests *result)
+// 30-20-10 -> 20-10-30
+static void	test_rotate_up(t_dll *target, t_tests *result)
 {
 	target->add(target, 10);
 	target->add(target, 20);
@@ -26,7 +26,7 @@ void	test_rotate_up(t_dll *target, t_tests *result)
 }
 
 // 30-20-10 -> 10-30-20
-void	test_rotate_down(t_dll *target, t_tests *result)
+static void	test_rotate_down(t_dll *target, t_tests *result)
 {
 	target->add(target, 10);
 	target->add(target, 20);
@@ -38,7 +38,7 @@ void	test_rotate_down(t_dll *target, t_tests *result)
 		result->result[result->result_len++] = TEST_NG;
 }
 
-void	test_rotate_one(t_dll *target, t_tests *result)
+static void	test_rotate_one(t_dll *target, t_tests *result)
 {
 	target->add(target, 10);
 	target->rotate(target, DLL_SHIFT_DOWN);
@@ -48,11 +48,25 @@ void	test_rotate_one(t_dll *target, t_tests *result)
 		result->result[result->result_len++] = TEST_NG;
 }
 
-void	test_rotate_empty(t_dll *target, t_tests *result)
+static void	test_rotate_empty(t_dll *target, t_tests *result)
 {
 	target->rotate(target, DLL_SHIFT_UP);
 	if (!target->head && !target->tail)
 		result->result[result->result_len++] = TEST_OK;
 	else
 		result->result[result->result_len++] = TEST_NG;
+}
+
+void	test_rotate_dll_run(void)
+{
+	t_tests	*result;
+
+	result = test_result_init("test_rtt_dll");
+	if (!result)
+		return ;
+	test_dll_run(test_rotate_up, result);
+	test_dll_run(test_rotate_down, result);
+	test_dll_run(test_rotate_one, result);
+	test_dll_run(test_rotate_empty, result);
+	result->show(result);
 }

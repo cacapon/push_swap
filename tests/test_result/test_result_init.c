@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_dll.c                                         :+:      :+:    :+:   */
+/*   test_result_init.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 15:38:19 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 20:48:16 by ttsubo           ###   ########.fr       */
+/*   Created: 2025/01/15 20:16:59 by ttsubo            #+#    #+#             */
+/*   Updated: 2025/01/15 20:52:07 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test_dll.h"
+#include "test_result.h"
 
-void	test_dll_run(void (*test)(t_dll *t, t_tests *r), t_tests *result)
+t_tests	*test_result_init(char *name)
 {
-	t_dll	*target;
+	t_tests	*result;
 
-	target = init_dll();
-	test(target, result);
-	target->free(&target);
-}
-
-int	main(void)
-{
-	test_init_dll_run();
-	test_add_dll_run();
-	test_pop_dll_run();
-	test_swap_dll_run();
-	test_rotate_dll_run();
+	result = ft_calloc(sizeof(t_tests), 1);
+	if (!result)
+		return (NULL);
+	result->result_len = 0;
+	result->set_name = test_result_setname;
+	result->show = test_result_show;
+	result->set_name(result, name);
+	return (result);
 }

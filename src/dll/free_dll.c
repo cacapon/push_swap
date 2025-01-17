@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 16:23:15 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/15 20:55:13 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 /**
  * @brief 双方向リストの中身をクリアしてNULLをセットします
- * 
- * @param self 
+ *
+ * @param self
  */
 void	free_dll(t_dll **self)
 {
@@ -32,7 +32,7 @@ void	free_dll(t_dll **self)
 		next = node->next;
 		free(node);
 		if (next == start)
-			break;
+			break ;
 		node = next;
 	}
 	free(*self);
