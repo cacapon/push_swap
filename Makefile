@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/17 14:58:41 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/17 15:09:14 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ OBJ_PATH		= build/
 LIBFT_PATH		= lib/libft/
 
 SRC_MAIN	= main.c push_swap_util.c
-SRC_DLL		= add_dll.c append_dll.c free_dll.c init_dll.c is_in_dll.c pop_dll.c rotate_dll.c swap_dll.c 
+SRC_DLL		= add_dll.c append_dll.c free_dll.c init_dll.c \
+			  is_in_dll.c pop_dll.c rotate_dll.c swap_dll.c len_dll.c
 SRC_LOGIC	= bubble_sort.c select_sort.c
 SRC_CMD		= push.c rotate.c rv_rotate.c swap.c
 SRCS		= 	$(addprefix $(SRC_PATH), $(SRC_MAIN)) \

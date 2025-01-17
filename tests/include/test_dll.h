@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 13:30:56 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 20:50:48 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/17 15:07:59 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ void	test_add_dll_run(void);
 void	test_pop_dll_run(void);
 void	test_swap_dll_run(void);
 void	test_rotate_dll_run(void);
+void	test_len_dll_run(void);
 
 #endif
