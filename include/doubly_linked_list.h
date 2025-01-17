@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:39 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 18:57:09 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/17 14:40:15 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct e_dll
 	void					(*rotate)(t_dll *self, t_dll_direction direction);
 	void					(*free)(t_dll **self);
 	int						(*is_in)(t_dll *self, int value);
+	int						(*len)(t_dll *self);
 }							t_dll;
 
 // functions
@@ -65,5 +66,6 @@ void						swap_dll(t_dll *self);
 void						rotate_dll(t_dll *self, t_dll_direction direction);
 void						free_dll(t_dll **self);
 int							is_in(t_dll *self, int value);
+size_t						len_dll(t_dll *self);
 
 #endif
