@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/18 14:01:42 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/18 15:00:40 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 static t_move_count	_get_move_count_a(t_dll *stack, t_dll_node *node)
 {
 	t_move_count	mv;
+	size_t			len;
 
+	len = stack->len(stack);
 	mv.right = stack->index(stack, node->value);
-	mv.left = (stack->len(stack) - mv.right) % stack->len(stack);
+	mv.left = (len - mv.right) % len;
 	return (mv);
 }
 
@@ -99,24 +101,25 @@ void	select_insert_sort(t_dll *stack_a, t_dll *stack_b)
 	size_t		index;
 	t_move_cmd	*mv;
 	t_dll_node	*node;
-	size_t		mv_min;
 	size_t		cmd_i;
+	size_t		len;
 
 	while (stack_a->head)
 	{
+		len = stack_a->len(stack_a);
 		node = stack_a->head;
 		index = 0;
-		mv = ft_calloc(stack_a->len(stack_a), sizeof(t_move_count));
+		mv = ft_calloc(len, sizeof(t_move_cmd));
 		if (!mv)
 			exit(1);
-		while (index < stack_a->len(stack_a))
+		while (index < len)
 		{
 			mv[index] = _get_min_move(_get_move_count_a(stack_a, node),
 					_get_move_count_b(stack_b, node));
 			node = node->next;
 			index++;
 		}
-		cmd_i = _get_min_cmd_index(mv, stack_a->len(stack_a));
+		cmd_i = _get_min_cmd_index(mv, len);
 		while (mv[cmd_i].a_l || mv[cmd_i].a_r || mv[cmd_i].b_l || mv[cmd_i].b_r)
 		{
 			if(mv[cmd_i].a_l && mv[cmd_i].a_l--)

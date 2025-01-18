@@ -6,14 +6,14 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/17 15:45:33 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/18 14:14:18 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= push_swap
 CC 			= cc -Wall -Wextra -Werror
 ifeq ($(MAKECMDGOALS), debug)
-	CC := gcc -Wall -Wextra -Werror -g
+	CC := cc -Wall -Wextra -Werror -g
 endif
 
 SRC_PATH		= src/
@@ -27,7 +27,7 @@ SRC_MAIN	= main.c push_swap_util.c
 SRC_DLL		= add_dll.c append_dll.c free_dll.c init_dll.c \
 			  is_in_dll.c pop_dll.c rotate_dll.c swap_dll.c \
 			  len_dll.c min_dll.c index_dll.c
-SRC_LOGIC	= bubble_sort.c select_sort.c
+SRC_LOGIC	= bubble_sort.c select_sort.c select_insert_sort.c
 SRC_CMD		= push.c rotate.c rv_rotate.c swap.c
 SRCS		= 	$(addprefix $(SRC_PATH), $(SRC_MAIN)) \
 				$(addprefix $(SRC_DLL_PATH), $(SRC_DLL)) \
