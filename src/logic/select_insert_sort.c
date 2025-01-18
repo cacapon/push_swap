@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/18 15:00:40 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/18 15:03:37 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ static t_move_cmd	_get_min_move(t_move_count mv_a, t_move_count mv_b)
 
 static size_t	_get_min_cmd_index(t_move_cmd *mv, size_t len)
 {
-	size_t i;
-	size_t mv_min;
-	size_t mv_min_i;
-	size_t total;
+	size_t	i;
+	size_t	mv_min;
+	size_t	mv_min_i;
+	size_t	total;
 
 	i = 0;
 	mv_min = ULONG_MAX;
@@ -122,13 +122,13 @@ void	select_insert_sort(t_dll *stack_a, t_dll *stack_b)
 		cmd_i = _get_min_cmd_index(mv, len);
 		while (mv[cmd_i].a_l || mv[cmd_i].a_r || mv[cmd_i].b_l || mv[cmd_i].b_r)
 		{
-			if(mv[cmd_i].a_l && mv[cmd_i].a_l--)
+			if (mv[cmd_i].a_l && mv[cmd_i].a_l--)
 				rra(stack_a);
-			if(mv[cmd_i].a_r && mv[cmd_i].a_r--)
+			if (mv[cmd_i].a_r && mv[cmd_i].a_r--)
 				ra(stack_a);
-			if(mv[cmd_i].b_l && mv[cmd_i].b_l--)
+			if (mv[cmd_i].b_l && mv[cmd_i].b_l--)
 				rrb(stack_a);
-			if(mv[cmd_i].b_r && mv[cmd_i].b_r--)
+			if (mv[cmd_i].b_r && mv[cmd_i].b_r--)
 				rb(stack_a);
 		}
 		pb(stack_b, stack_a);

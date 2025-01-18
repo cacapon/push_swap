@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/17 14:43:40 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/18 15:03:07 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 /**
  * @brief 双方向リストのノードの個数を返します。
- * 
- * @param self 
- * @return size_t 
+ *
+ * @param self
+ * @return size_t
  */
 size_t	len_dll(t_dll *self)
 {
@@ -32,7 +32,7 @@ size_t	len_dll(t_dll *self)
 		count++;
 		node = node->next;
 		if (node == self->head)
-			break;
+			break ;
 	}
 	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:21:09 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/16 16:26:54 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/18 15:04:13 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static void	_swap(t_dll *stack)
 	stack->head->value = stack->head->next->value;
 	stack->head->next->value = tmp;
 }
-
 
 /**
  * @brief stack_aの最初の二つの要素を入れ替えます
@@ -52,9 +51,9 @@ void	sb(t_dll *stack_b)
 
 /**
  * @brief 両方のスタックの最初の要素を入れ替えます。
- * 
- * @param stack_a 
- * @param stack_b 
+ *
+ * @param stack_a
+ * @param stack_b
  */
 void	ss(t_dll *stack_a, t_dll *stack_b)
 {

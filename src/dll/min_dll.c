@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/17 15:35:08 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/18 15:03:16 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 /**
  * @brief 双方向リストのノードの最小値を返します。
- * 
- * @param self 
+ *
+ * @param self
  * @return int
  * @note	見つからない場合はINT_MAXを返します。
  */
 int	min_dll(t_dll *self)
 {
 	t_dll_node	*node;
-	int		min;
+	int			min;
 
 	min = INT_MAX;
 	if (!self || !self->head)
@@ -34,7 +34,7 @@ int	min_dll(t_dll *self)
 			min = node->value;
 		node = node->next;
 		if (node == self->head)
-			break;
+			break ;
 	}
 	return (min);
 }

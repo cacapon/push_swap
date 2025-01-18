@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/17 14:59:12 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/18 15:03:27 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	bubble_sort(t_dll *stack_a)
 			if (node->next == head)
 			{
 				ra(stack_a);
-				break;
+				break ;
 			}
 			if (node->value > node->next->value)
 				sa(stack_a);

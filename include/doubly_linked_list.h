@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:39 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/17 15:44:32 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/18 15:09:39 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct e_dll
 	void					(*free)(t_dll **self);
 	int						(*is_in)(t_dll *self, int value);
 	int						(*index)(t_dll *self, int value);
-	size_t					(*len)(t_dll *self);
+	size_t					(*len)(t_dll	*self);
 	int						(*min)(t_dll *self);
 }							t_dll;
 
