@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/18 15:03:37 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/18 17:10:35 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static t_move_count	_get_move_count_a(t_dll *stack, t_dll_node *node)
 	size_t			len;
 
 	len = stack->len(stack);
-	mv.right = stack->index(stack, node->value);
-	mv.left = (len - mv.right) % len;
+	mv.left = stack->index(stack, node->value);
+	mv.right = (len - mv.left) % len;
 	return (mv);
 }
 
@@ -36,24 +36,29 @@ static t_move_count	_get_move_count_b(t_dll *stack, t_dll_node *node)
 	t_dll_node		*check;
 	t_move_count	mv;
 	const int		value = node->value;
+	size_t			len;
+
+	ft_printf("DBG:get_move_count_b:%d\n", value);
 
 	mv = (t_move_count){.left = 0, .right = 0};
-	if (stack->len(stack) <= 1)
+	len = stack->len(stack);
+	if (len <= 1)
 		return (mv);
 	check = stack->head;
 	while (check)
 	{
-		if (check->value < value && value < check->next->value)
+		mv.left++;
+		if (check->value > value && value > check->next->value)
 			break ;
 		check = check->next;
 		if (check == stack->head)
 		{
-			mv.right = stack->index(stack, stack->min(stack));
+			mv.left = stack->index(stack, stack->min(stack)) + 1;
 			break ;
 		}
-		mv.right++;
 	}
-	mv.left = (stack->len(stack) - mv.right) % stack->len(stack);
+	mv.right = (len - mv.left) % len;
+	ft_printf("\tmv(<%d,%d>)\n",mv.left, mv.right);
 	return (mv);
 }
 
@@ -116,10 +121,14 @@ void	select_insert_sort(t_dll *stack_a, t_dll *stack_b)
 		{
 			mv[index] = _get_min_move(_get_move_count_a(stack_a, node),
 					_get_move_count_b(stack_b, node));
+			ft_printf("min_mv=a(<%d | %d>) ", mv[index].a_l, mv[index].a_r);
+			ft_printf("min_mv=b(<%d | %d>)\n", mv[index].b_l, mv[index].b_r);
 			node = node->next;
 			index++;
 		}
 		cmd_i = _get_min_cmd_index(mv, len);
+		ft_printf("---\ncmd_mv=a(<%d | %d>) ", mv[cmd_i].a_l, mv[cmd_i].a_r);
+		ft_printf("cmd_mv=b(<%d | %d>)\n---\n", mv[cmd_i].b_l, mv[cmd_i].b_r);
 		while (mv[cmd_i].a_l || mv[cmd_i].a_r || mv[cmd_i].b_l || mv[cmd_i].b_r)
 		{
 			if (mv[cmd_i].a_l && mv[cmd_i].a_l--)
@@ -127,13 +136,23 @@ void	select_insert_sort(t_dll *stack_a, t_dll *stack_b)
 			if (mv[cmd_i].a_r && mv[cmd_i].a_r--)
 				ra(stack_a);
 			if (mv[cmd_i].b_l && mv[cmd_i].b_l--)
-				rrb(stack_a);
+				rrb(stack_b);
 			if (mv[cmd_i].b_r && mv[cmd_i].b_r--)
-				rb(stack_a);
+				rb(stack_b);
 		}
 		pb(stack_b, stack_a);
 		free(mv);
 	}
 	while (stack_b->head)
 		pa(stack_a, stack_b);
+	// DBG
+	index = 0;
+	node = stack_a->head;
+	while (index < stack_a->len(stack_a))
+	{
+		ft_printf("%d,",node->value);
+		node = node->next;
+		index++;
+	}
+	ft_printf("\n");
 }
