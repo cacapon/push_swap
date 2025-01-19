@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/19 20:57:19 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/19 21:53:18 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRC_MAIN	= main.c
 SRC_UTILS	= ft_max.c ft_min.c ft_abs.c ft_atoi_with_error.c
 SRC_DLL		= add_dll.c append_dll.c free_dll.c init_dll.c \
 			  is_in_dll.c pop_dll.c rotate_dll.c swap_dll.c \
-			  len_dll.c max_dll.c min_dll.c index_dll.c get_dll.c
+			  max_dll.c min_dll.c index_dll.c get_dll.c
 SRC_LOGIC	= bubble_sort.c select_sort.c select_insert_sort.c 
 SRC_SELECT_INSERT_SORT_UTILS	= exec_cmd.c get_b_left_mv.c \
 			  get_cmd_mv.c get_min_mv.c move_max_to_head.c

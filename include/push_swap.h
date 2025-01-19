@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:32:57 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/19 20:56:14 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/19 21:39:15 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,6 @@ typedef enum e_push_swap_err
 }			t_push_swap_err;
 
 // struct
-
-typedef struct e_move_count
-{
-	size_t	left;
-	size_t	right;
-}			t_move_count;
-
-typedef struct e_move_cmd
-{
-	size_t	a_r;
-	size_t	a_l;
-	size_t	b_r;
-	size_t	b_l;
-}			t_move_cmd;
 
 typedef struct e_cmd_mv
 {

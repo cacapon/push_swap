@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:39 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/19 14:33:19 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/19 21:53:47 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define DOUBLY_LINKED_LIST_H
 
 # include "../lib/libft/libft.h"
+# define CACHE_SIZE 1000
 
 typedef struct e_dll_node	t_dll_node;
 typedef struct e_dll		t_dll;
@@ -44,6 +45,8 @@ typedef struct e_dll
 {
 	t_dll_node				*head;
 	t_dll_node				*tail;
+	size_t					size;
+	int						_cache[CACHE_SIZE];
 
 	void					(*add)(t_dll *self, int value);
 	void					(*append)(t_dll *self, int value);
@@ -53,7 +56,6 @@ typedef struct e_dll
 	void					(*free)(t_dll **self);
 	int						(*is_in)(t_dll *self, int value);
 	int						(*index)(t_dll *self, int value);
-	size_t					(*len)(t_dll	*self);
 	int						(*min)(t_dll *self);
 	int						(*max)(t_dll *self);
 	int						(*get)(t_dll *self, size_t index);
@@ -73,7 +75,6 @@ int							is_in(t_dll *self, int value);
 int							index_dll(t_dll *self, int value);
 int							min_dll(t_dll *self);
 int							max_dll(t_dll *self);
-size_t						len_dll(t_dll *self);
 int							get_dll(t_dll *self, size_t index);
 
 #endif

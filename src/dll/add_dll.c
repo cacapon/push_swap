@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 17:21:00 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/19 21:43:39 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,5 @@ void	add_dll(t_dll *self, int value)
 	self->head->prev = node;
 	self->tail->next = node;
 	self->head = node;
+	self->size++;
 }

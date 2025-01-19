@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 19:59:17 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/19 21:45:10 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ t_dll_node	*pop_dll(t_dll *self)
 	}
 	node->prev = node;
 	node->next = node;
+	self->size--;
 	return (node);
 }
