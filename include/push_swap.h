@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:32:57 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/18 14:03:20 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/19 14:44:42 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,15 @@ typedef struct e_move_cmd
 	size_t	b_l;
 }			t_move_cmd;
 
+// ft_utils
+
+int			ft_abs(int a);
+int			ft_max(int a, int b);
+int			ft_min(int a, int b);
+int			ft_atoi_with_error(const char *str, t_push_swap_err *error);
+
 // prototype
 
-int			ft_atoi_with_error(const char *str, t_push_swap_err *error);
 void		pa(t_dll *stack_a, t_dll *stack_b);
 void		pb(t_dll *stack_b, t_dll *stack_a);
 void		ra(t_dll *stack_a);
