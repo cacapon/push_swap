@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:39 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/18 15:09:39 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/19 13:40:00 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct e_dll
 	int						(*index)(t_dll *self, int value);
 	size_t					(*len)(t_dll	*self);
 	int						(*min)(t_dll *self);
+	int						(*get)(t_dll *self, size_t index);
 }							t_dll;
 
 // functions
@@ -71,5 +72,6 @@ int							is_in(t_dll *self, int value);
 int							index_dll(t_dll *self, int value);
 int							min_dll(t_dll *self);
 size_t						len_dll(t_dll *self);
+int							get_dll(t_dll *self, size_t index);
 
 #endif
