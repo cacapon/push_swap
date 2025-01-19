@@ -92,6 +92,17 @@ def get_a_mv(x:int, a:list):
 	mv[1] = (len(a) - index) % len(a)
 	return mv
 
+def get_b_left_mv(x:int, b:list):
+	# xをbの値のどこに入れるかを求める
+	mv = 0
+	if (len(b) < 2):
+		return mv
+	for i in range(len(b)):
+		if b[i] > x and x > b[(i+1) % len(b)]:
+			return (i + 1) % len(b)
+	# 見つからない場合はindexは最大値の場所に合わせる
+	return b.index(max(b))
+
 def get_b_mv(x:int, b:list):
 	# xをbの値のどこに入れるかを求める
 	mv = [0,0]

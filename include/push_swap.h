@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:32:57 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/19 14:44:42 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/19 20:56:14 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,28 @@ typedef struct e_move_cmd
 	size_t	b_l;
 }			t_move_cmd;
 
+typedef struct e_cmd_mv
+{
+	int		a;
+	int		b;
+	int		c;
+	int		total;
+}			t_cmd_mv;
+
 // ft_utils
 
 int			ft_abs(int a);
 int			ft_max(int a, int b);
 int			ft_min(int a, int b);
 int			ft_atoi_with_error(const char *str, t_push_swap_err *error);
+
+// select_insert_sort_utils
+
+void		exec_cmd(t_dll **a, t_dll **b, t_cmd_mv cmd);
+int			get_b_left_mv(int value, t_dll *b);
+t_cmd_mv	get_cmd_mv(size_t ite, t_dll *a, t_dll *b);
+t_cmd_mv	get_min_mv(t_cmd_mv *cmd_moves, size_t size);
+void		move_max_to_head(t_dll **b);
 
 // prototype
 
