@@ -152,8 +152,6 @@ def main(n):
 	cmd = Commands()
 	a = rand_ints_nodup(1,n*2,n)
 	b = []
-	print(a)
-	print(b)
 	for i in range(2):
 		cmd._rotate(b)
 	while (len(a) > 0):
@@ -191,8 +189,6 @@ def main(n):
 				cmd.rrb(b)
 				min_mv[1] -= 1
 		cmd.pb(a,b)
-		print(f"a:{a}")
-		print(f"b:{b}")
 	# bの一番高い数字を先頭に戻す
 	b_max_mv = get_a_mv(max(b), b)
 	if b_max_mv[0] < b_max_mv[1]:
@@ -208,8 +204,6 @@ def main(n):
 			b_max_mv[1] -= 1
 	while len(b) > 0:
 		cmd.pa(a, b)
-	print(f"a:{a}")
-	print(f"b:{b}")
 	print(f"a is_sorted:{a == sorted(a)}")
 
 

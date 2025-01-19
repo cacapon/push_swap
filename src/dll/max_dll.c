@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_dll.c                                         :+:      :+:    :+:   */
+/*   max_dll.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/19 14:33:47 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/19 14:33:25 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doubly_linked_list.h"
 
 /**
- * @brief 双方向リストを初期化して、メソッドをセットします。
- * 
- * @return t_dll* 
+ * @brief 双方向リストのノードの最大値を返します。
+ *
+ * @param self
+ * @return int
+ * @note	見つからない場合はINT_MINを返します。
  */
-t_dll	*init_dll(void)
+int	max_dll(t_dll *self)
 {
-	t_dll	*dll;
+	t_dll_node	*node;
+	int			max;
 
-	dll = (t_dll *)ft_calloc(sizeof(t_dll), 1);
-	if (!dll)
-		return (NULL);
-	dll->head = NULL;
-	dll->tail = NULL;
-	dll->add = add_dll;
-	dll->append = append_dll;
-	dll->pop = pop_dll;
-	dll->swap = swap_dll;
-	dll->rotate = rotate_dll;
-	dll->free = free_dll;
-	dll->is_in = is_in;
-	dll->index = index_dll;
-	dll->len = len_dll;
-	dll->max = max_dll;
-	dll->min = min_dll;
-	dll->get = get_dll;
-	return (dll);
+	max = INT_MIN;
+	if (!self || !self->head)
+		return (max);
+	node = self->head;
+	while (node)
+	{
+		if (node->value > max)
+			max = node->value;
+		node = node->next;
+		if (node == self->head)
+			break ;
+	}
+	return (max);
 }
