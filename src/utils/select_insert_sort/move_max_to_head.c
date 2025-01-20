@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_handler2.c                                  :+:      :+:    :+:   */
+/*   move_max_to_head.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/20 11:24:29 by ttsubo           ###   ########.fr       */
+/*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
+/*   Updated: 2025/01/19 21:48:24 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "format_handler.h"
+#include "push_swap.h"
 
-int	handle_ptr(va_list *args)
+void	move_max_to_head(t_dll **b)
 {
-	return (ptf_putptr_fd(va_arg(*args, void *), FD_STDOUT));
-}
+	int			cmd_mv;
+	int			b_max_mv[2];
 
-int	handle_lower_hex(va_list *args)
-{
-	return (ptf_puthex_fd(va_arg(*args, uint32_t), FD_STDOUT, HEX_IS_LOWER));
-}
-
-int	handle_upper_hex(va_list *args)
-{
-	return (ptf_puthex_fd(va_arg(*args, uint32_t), FD_STDOUT, HEX_IS_UPPER));
+	b_max_mv[0] = get_b_left_mv((*b)->max(*b), *b);
+	b_max_mv[1] = ((*b)->size - b_max_mv[0]) % (*b)->size;
+	if (b_max_mv[0] < b_max_mv[1])
+		cmd_mv = (-b_max_mv[0]);
+	else
+		cmd_mv = (b_max_mv[1]);
+	while (cmd_mv != 0)
+	{
+		if (cmd_mv > 0 && cmd_mv--)
+			rrb(*b);
+		else if (cmd_mv < 0 && cmd_mv++)
+			rb(*b);
+	}
 }

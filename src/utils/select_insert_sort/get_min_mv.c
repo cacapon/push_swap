@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_handler2.c                                  :+:      :+:    :+:   */
+/*   get_min_mv.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 14:24:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/20 11:24:29 by ttsubo           ###   ########.fr       */
+/*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
+/*   Updated: 2025/01/19 20:49:50 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "format_handler.h"
+#include "push_swap.h"
 
-int	handle_ptr(va_list *args)
+t_cmd_mv	get_min_mv(t_cmd_mv *cmd_moves, size_t size)
 {
-	return (ptf_putptr_fd(va_arg(*args, void *), FD_STDOUT));
-}
+	size_t	index;
+	size_t	min_i;
+	int		min_mv;
 
-int	handle_lower_hex(va_list *args)
-{
-	return (ptf_puthex_fd(va_arg(*args, uint32_t), FD_STDOUT, HEX_IS_LOWER));
-}
-
-int	handle_upper_hex(va_list *args)
-{
-	return (ptf_puthex_fd(va_arg(*args, uint32_t), FD_STDOUT, HEX_IS_UPPER));
+	min_mv = INT_MAX;
+	index = 0;
+	min_i = 0;
+	while (index < size)
+	{
+		if (cmd_moves[index].total < min_mv)
+		{
+			min_mv = cmd_moves[index].total;
+			min_i = index;
+		}
+		index++;
+	}
+	return (cmd_moves[min_i]);
 }

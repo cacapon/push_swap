@@ -6,28 +6,40 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/15 21:24:51 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/20 11:28:51 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= push_swap
 CC 			= cc -Wall -Wextra -Werror
 ifeq ($(MAKECMDGOALS), debug)
-	CC := gcc -Wall -Wextra -Werror -g
+	CC := cc -Wall -Wextra -Werror -g
 endif
 
 SRC_PATH		= src/
 SRC_DLL_PATH	= src/dll/
+SRC_CMD_PATH	= src/cmd/
 SRC_LOGIC_PATH	= src/logic/
+SRC_UTILS_PATH	= src/utils/
+SRC_SELECT_INSERT_SORT_UTILS_PATH = src/utils/select_insert_sort/
 OBJ_PATH		= build/
 LIBFT_PATH		= lib/libft/
 
-SRC_MAIN	= main.c push_swap.c push_swap_util.c
-SRC_DLL		= add_dll.c append_dll.c free_dll.c init_dll.c is_in_dll.c pop_dll.c rotate_dll.c swap_dll.c 
-SRC_LOGIC	= bubble_sort.c select_sort.c
+SRC_MAIN	= main.c
+SRC_UTILS	= ft_max.c ft_min.c ft_abs.c ft_atoi_with_error.c
+SRC_DLL		= add_dll.c append_dll.c free_dll.c init_dll.c \
+			  is_in_dll.c pop_dll.c rotate_dll.c swap_dll.c \
+			  max_dll.c min_dll.c index_dll.c get_dll.c
+SRC_LOGIC	= select_insert_sort.c 
+SRC_SELECT_INSERT_SORT_UTILS	= exec_cmd.c get_b_left_mv.c \
+			  get_cmd_mv.c get_min_mv.c move_max_to_head.c
+SRC_CMD		= push.c rotate.c rv_rotate.c swap.c
 SRCS		= 	$(addprefix $(SRC_PATH), $(SRC_MAIN)) \
+				$(addprefix $(SRC_UTILS_PATH), $(SRC_UTILS)) \
 				$(addprefix $(SRC_DLL_PATH), $(SRC_DLL)) \
-				$(addprefix $(SRC_LOGIC_PATH), $(SRC_LOGIC))
+				$(addprefix $(SRC_LOGIC_PATH), $(SRC_LOGIC)) \
+				$(addprefix $(SRC_CMD_PATH), $(SRC_CMD)) \
+				$(addprefix $(SRC_SELECT_INSERT_SORT_UTILS_PATH), $(SRC_SELECT_INSERT_SORT_UTILS))
 
 OBJS		= $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
 

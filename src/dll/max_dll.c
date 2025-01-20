@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_dll.c                                          :+:      :+:    :+:   */
+/*   max_dll.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/19 21:43:39 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/19 14:33:25 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doubly_linked_list.h"
 
 /**
- * @brief 双方向リストの先頭にノードを追加します
- * 
- * @param self 
- * @param value
+ * @brief 双方向リストのノードの最大値を返します。
+ *
+ * @param self
+ * @return int
+ * @note	見つからない場合はINT_MINを返します。
  */
-void	add_dll(t_dll *self, int value)
+int	max_dll(t_dll *self)
 {
 	t_dll_node	*node;
+	int			max;
 
-	node = (t_dll_node *)ft_calloc(sizeof(t_dll_node), 1);
-	node->value = value;
-	if (!self->head)
+	max = INT_MIN;
+	if (!self || !self->head)
+		return (max);
+	node = self->head;
+	while (node)
 	{
-		self->head = node;
-		self->tail = node;
+		if (node->value > max)
+			max = node->value;
+		node = node->next;
+		if (node == self->head)
+			break ;
 	}
-	node->next = self->head;
-	node->prev = self->tail;
-	self->head->prev = node;
-	self->tail->next = node;
-	self->head = node;
-	self->size++;
+	return (max);
 }

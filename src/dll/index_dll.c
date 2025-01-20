@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_dll.c                                          :+:      :+:    :+:   */
+/*   index_dll.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/19 21:43:39 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/18 15:02:56 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doubly_linked_list.h"
 
 /**
- * @brief 双方向リストの先頭にノードを追加します
- * 
- * @param self 
+ * @brief 指定したvalueのインデックスを取得します。
+ *
+ * @param self
  * @param value
+ * @return int
+ * @note	存在しない場合-1を返します。
  */
-void	add_dll(t_dll *self, int value)
+int	index_dll(t_dll *self, int value)
 {
 	t_dll_node	*node;
+	int			index;
 
-	node = (t_dll_node *)ft_calloc(sizeof(t_dll_node), 1);
-	node->value = value;
-	if (!self->head)
+	index = 0;
+	if (!self || !self->head)
+		return (-1);
+	node = self->head;
+	while (node)
 	{
-		self->head = node;
-		self->tail = node;
+		if (value == node->value)
+			return (index);
+		index++;
+		node = node->next;
+		if (node == self->head)
+			break ;
 	}
-	node->next = self->head;
-	node->prev = self->tail;
-	self->head->prev = node;
-	self->tail->next = node;
-	self->head = node;
-	self->size++;
+	return (-1);
 }
