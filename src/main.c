@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:47:52 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/20 12:05:03 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/20 12:10:44 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ static t_push_swap_err	_is_sorted(t_dll *a)
 {
 	t_dll_node	*node;
 
+	if (a->size <= 1)
+		return (PSW_OK);
 	node = a->head;
 	while (node)
 	{
