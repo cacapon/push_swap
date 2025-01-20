@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:47:52 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/20 12:10:44 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/20 12:19:02 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,9 @@ int	main(int argc, char **argv)
 		return (_free_stacks(&stack_a, &stack_b), ft_printf("Error\n"), 1);
 	if (_is_sorted(stack_a) == PSW_OK)
 		return (0);
-	select_insert_sort(stack_a, stack_b);
+	if (stack_a->size <= 5)
+		short_logic(stack_a, stack_b);
+	else
+		select_insert_sort(stack_a, stack_b);
 	return (_free_stacks(&stack_a, &stack_b), 0);
 }
