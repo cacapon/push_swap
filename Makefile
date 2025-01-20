@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/20 11:28:51 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/20 11:38:47 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ T_INCS		= -I ./tests/include
 LIBFT		= libft.a
 
 all:  $(NAME)
-debug: $(NAME)
+debug: fclean $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT_PATH)$(LIBFT)
 	$(CC) $^ -o $@
