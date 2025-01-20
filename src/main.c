@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:47:52 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/18 14:04:12 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/20 11:44:20 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ static t_push_swap_err	_setup_stack_a(int argc, char **argv, t_dll **stack)
 	while (i < argc)
 	{
 		value = ft_atoi_with_error(argv[i++], &error);
-		if (error != PSW_OK || (*stack)->is_in((*stack), value))
+		if (error != PSW_OK)
 			return (error);
+		if ((*stack)->is_in((*stack), value))
+			return (ERR_PSW_DUPLICATE_NUM);
 		(*stack)->append((*stack), value);
 	}
 	return (PSW_OK);

@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:32:57 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/20 11:28:42 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/20 11:44:11 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef enum e_push_swap_err
 	PSW_OK,
 	ERR_PSW_OUTOFRANGE,
 	ERR_PSW_NOT_NUM,
+	ERR_PSW_DUPLICATE_NUM,
 }			t_push_swap_err;
 
 // struct
