@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/20 11:20:21 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/20 11:21:17 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	_set_mv_a_count(int ite, int mv_a[2], t_dll *a)
 {
-	if(a->size == 0)
+	if (a->size == 0)
 	{
 		mv_a[0] = 0;
 		mv_a[1] = 0;
@@ -26,7 +26,7 @@ static void	_set_mv_a_count(int ite, int mv_a[2], t_dll *a)
 
 static void	_set_mv_b_count(int ite, int mv_b[2], t_dll *a, t_dll *b)
 {
-	if(b->size == 0)
+	if (b->size == 0)
 	{
 		mv_b[0] = 0;
 		mv_b[1] = 0;
