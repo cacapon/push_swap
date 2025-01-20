@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:47:52 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/20 11:50:02 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/20 12:05:03 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,22 @@ static t_push_swap_err	_setup_stack_a(int argc, char **argv, t_dll **stack)
 	return (PSW_OK);
 }
 
+static t_push_swap_err	_is_sorted(t_dll *a)
+{
+	t_dll_node	*node;
+
+	node = a->head;
+	while (node)
+	{
+		if (node->value >= node->next->value)
+			return (ERR_PSW_NOT_SORTED);
+		node = node->next;
+		if (node->next == a->head)
+			break ;
+	}
+	return (PSW_OK);
+}
+
 static void	_free_stacks(t_dll **stack_a, t_dll **stack_b)
 {
 	(*stack_a)->free(stack_a);
@@ -57,6 +73,8 @@ int	main(int argc, char **argv)
 	stack_b = _init_stack();
 	if (_setup_stack_a(argc, argv, &stack_a) != PSW_OK)
 		return (_free_stacks(&stack_a, &stack_b), ft_printf("Error\n"), 1);
+	if (_is_sorted(stack_a) == PSW_OK)
+		return (0);
 	select_insert_sort(stack_a, stack_b);
 	return (_free_stacks(&stack_a, &stack_b), 0);
 }
