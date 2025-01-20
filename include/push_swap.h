@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:32:57 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/19 21:39:15 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/20 11:28:42 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ void		rrr(t_dll *stack_a, t_dll *stack_b);
 void		sa(t_dll *stack_a);
 void		sb(t_dll *stack_b);
 void		ss(t_dll *stack_a, t_dll *stack_b);
-void		bubble_sort(t_dll *stack_a);
-void		select_sort(t_dll *stack_a, t_dll *stack_b);
 void		select_insert_sort(t_dll *stack_a, t_dll *stack_b);
 
 #endif
