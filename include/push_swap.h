@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:32:57 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/20 12:01:44 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/20 13:52:53 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ void		sa(t_dll *stack_a);
 void		sb(t_dll *stack_b);
 void		ss(t_dll *stack_a, t_dll *stack_b);
 void		select_insert_sort(t_dll *stack_a, t_dll *stack_b);
+void		short_logic(t_dll *a, t_dll *b);
 
 #endif
