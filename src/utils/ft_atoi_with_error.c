@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_util.c                                   :+:      :+:    :+:   */
+/*   ft_atoi_with_error.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 13:41:01 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/08 13:54:03 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/24 15:23:42 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	ft_atoi_with_error(const char *str, t_push_swap_err *error)
 		sign = -1;
 	if (*str == '+' || *str == '-')
 		str++;
+	if (*str == '\0')
+		return (*error = ERR_PSW_NOT_NUM, 0);
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
@@ -43,7 +45,5 @@ int	ft_atoi_with_error(const char *str, t_push_swap_err *error)
 			return (*error = ERR_PSW_OUTOFRANGE, 0);
 		str++;
 	}
-	if (*str != '\0')
-		return (*error = 1, 0);
 	return ((int)(sign * num));
 }
