@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/20 13:53:08 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/24 15:09:36 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,8 +47,17 @@ INCS		= -I ./include
 T_INCS		= -I ./tests/include
 LIBFT		= libft.a
 
-all:  $(NAME)
-debug: fclean $(NAME)
+all:	init $(NAME)
+debug:	fclean init $(NAME)
+
+init:
+	@if git submodule status | grep -q '^-'; then \
+		echo "Updating git submodules..."; \
+		git submodule update --init; \
+	else \
+		echo "Submodules are already up to date."; \
+	fi
+
 
 $(NAME): $(OBJS) $(LIBFT_PATH)$(LIBFT)
 	$(CC) $^ -o $@
