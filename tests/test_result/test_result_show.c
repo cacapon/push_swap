@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:11:07 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/15 20:53:22 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 16:21:00 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	test_result_show(t_tests *result)
 	int	i;
 
 	i = 0;
-	ft_printf("%s:\t", result->name);
+	ft_printf("%s\t:", result->name);
 	while (result->result[i])
 	{
 		if (result->result[i] == TEST_OK)
