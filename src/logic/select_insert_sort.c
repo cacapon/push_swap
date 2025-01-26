@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/26 16:09:50 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 16:13:58 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	calculate_and_execute(t_dll *stack_a, t_dll *stack_b)
 		ite++;
 	}
 	min_mv = get_min_mv(cmd_moves, stack_a->size);
-	exec_cmd(&stack_a, &stack_b, min_mv);
+	rotate_and_push_b(&stack_a, &stack_b, min_mv);
 	free(cmd_moves);
 }
 
