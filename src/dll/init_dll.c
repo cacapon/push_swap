@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/19 21:53:39 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 15:04:28 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_dll	*init_dll(void)
 	dll->rotate = rotate_dll;
 	dll->free = free_dll;
 	dll->is_in = is_in;
+	dll->is_sorted = is_sorted_dll;
 	dll->index = index_dll;
 	dll->max = max_dll;
 	dll->min = min_dll;
