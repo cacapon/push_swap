@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/26 15:00:56 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/26 15:06:28 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ OBJ_PATH		= build/
 LIBFT_PATH		= lib/libft/
 
 SRC_MAIN	= main.c
-SRC_UTILS	= ft_max.c ft_min.c ft_abs.c ft_atoi_with_error.c
+SRC_UTILS	= ft_atoi_with_error.c
 SRC_DLL		= add_dll.c append_dll.c free_dll.c init_dll.c \
 			  is_in_dll.c pop_dll.c rotate_dll.c swap_dll.c \
 			  max_dll.c min_dll.c index_dll.c get_dll.c is_sorted_dll.c
