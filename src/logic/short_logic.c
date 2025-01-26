@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 12:17:36 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/26 15:46:12 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 15:50:41 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,24 +54,9 @@ static void	_size3_sort(t_dll *a)
 	}
 }
 
-// 小さい数字をプッシュして_size3_sortで並び替えして戻す
 static void	_logic_size4(t_dll *a, t_dll *b)
 {
-	size_t	index;
-	size_t	mv_min_r;
-	size_t	mv_min_l;
-
-	index = 0;
-	mv_min_l = a->index(a, a->min(a));
-	mv_min_r = (a->size - mv_min_l) % a->size;
-	while (index < mv_min_r && index < mv_min_l)
-	{
-		if (mv_min_r < mv_min_l)
-			rra(a);
-		else
-			ra(a);
-		index++;
-	}
+	move_min_to_head(&a);
 	pb(b, a);
 	_size3_sort(a);
 	pa(a, b);
@@ -79,21 +64,7 @@ static void	_logic_size4(t_dll *a, t_dll *b)
 
 static void	_logic_size5(t_dll *a, t_dll *b)
 {
-	size_t	index;
-	size_t	mv_min_r;
-	size_t	mv_min_l;
-
-	index = 0;
-	mv_min_l = a->index(a, a->min(a));
-	mv_min_r = (a->size - mv_min_l) % a->size;
-	while (index < mv_min_r && index < mv_min_l)
-	{
-		if (mv_min_r < mv_min_l)
-			rra(a);
-		else
-			ra(a);
-		index++;
-	}
+	move_min_to_head(&a);
 	pb(b, a);
 	_logic_size4(a, b);
 	pa(a, b);
