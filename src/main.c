@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:47:52 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/26 14:50:39 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 14:54:20 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a = init_dll();
 	stack_b = init_dll();
+	if (!stack_a || !stack_b)
+		return (_free_stacks(&stack_a, &stack_b), ft_printf("Error\n"), 1);
 	if (_setup_stack_a(argc, argv, &stack_a) != PSW_OK)
 		return (_free_stacks(&stack_a, &stack_b), ft_printf("Error\n"), 1);
 	if (_is_sorted(stack_a) == PSW_OK)
