@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:32:57 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/20 13:52:53 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/24 16:42:13 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,12 @@ int			ft_atoi_with_error(const char *str, t_push_swap_err *error);
 // select_insert_sort_utils
 
 void		exec_cmd(t_dll **a, t_dll **b, t_cmd_mv cmd);
+int			get_a_left_mv(int value, t_dll *a);
 int			get_b_left_mv(int value, t_dll *b);
 t_cmd_mv	get_cmd_mv(size_t ite, t_dll *a, t_dll *b);
 t_cmd_mv	get_min_mv(t_cmd_mv *cmd_moves, size_t size);
-void		move_max_to_head(t_dll **b);
+void		move_max_to_head(t_dll **s);
+void		move_min_to_head(t_dll **s);
 
 // prototype
 
