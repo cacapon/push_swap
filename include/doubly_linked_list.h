@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:20:39 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/19 21:53:47 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 15:04:10 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct e_dll
 	void					(*rotate)(t_dll *self, t_dll_direction direction);
 	void					(*free)(t_dll **self);
 	int						(*is_in)(t_dll *self, int value);
+	int						(*is_sorted)(t_dll *self);
 	int						(*index)(t_dll *self, int value);
 	int						(*min)(t_dll *self);
 	int						(*max)(t_dll *self);
@@ -72,6 +73,7 @@ void						swap_dll(t_dll *self);
 void						rotate_dll(t_dll *self, t_dll_direction direction);
 void						free_dll(t_dll **self);
 int							is_in(t_dll *self, int value);
+int							is_sorted_dll(t_dll *self);
 int							index_dll(t_dll *self, int value);
 int							min_dll(t_dll *self);
 int							max_dll(t_dll *self);

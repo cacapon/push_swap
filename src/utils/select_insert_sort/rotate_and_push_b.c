@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/19 20:37:01 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 16:13:39 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
  * @note	負の数の場合は数値分シフトアップ
  * @note	正の数の場合は数値分シフトダウンします。
  */
-void	exec_cmd(t_dll **a, t_dll **b, t_cmd_mv cmd)
+void	rotate_and_push_b(t_dll **a, t_dll **b, t_cmd_mv cmd)
 {
 	while (cmd.a != 0 || cmd.b != 0 || cmd.c != 0)
 	{

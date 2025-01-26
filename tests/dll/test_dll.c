@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:38:19 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/17 15:41:04 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 16:19:37 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	main(void)
 {
 	test_init_dll_run();
 	test_add_dll_run();
+	test_append_dll_run();
 	test_pop_dll_run();
 	test_swap_dll_run();
 	test_rotate_dll_run();
-	test_len_dll_run();
 	test_min_dll_run();
 	test_index_dll_run();
 }

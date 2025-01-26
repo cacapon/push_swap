@@ -6,16 +6,16 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 12:17:36 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/20 14:15:32 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 16:26:45 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	_swap(t_dll *s, void (*sw)(t_dll *))
+static void	_logic_size2(t_dll *a)
 {
-	if (s->head->value > s->head->next->value)
-		sw(s);
+	if (a->head->value > a->head->next->value)
+		sa(a);
 }
 
 /**
@@ -29,72 +29,42 @@ static void	_swap(t_dll *s, void (*sw)(t_dll *))
  * @note	321 -> sw rra
  *
  */
-static void	_size3_sort(t_dll *s, void (*sw)(t_dll *), void (*rt)(t_dll *),
-		void (*rrt)(t_dll *))
+static void	_logic_size3(t_dll *a)
 {
 	int	n[3];
 
-	n[0] = s->head->value;
-	n[1] = s->head->next->value;
-	n[2] = s->head->next->next->value;
+	n[0] = a->head->value;
+	n[1] = a->head->next->value;
+	n[2] = a->head->next->next->value;
 	if (n[0] > n[1] && n[1] < n[2] && n[2] > n[0])
-		sw(s);
-	if (n[0] < n[1] && n[1] > n[2] && n[2] < n[0])
-		rrt(s);
-	if (n[0] > n[1] && n[1] < n[2] && n[2] < n[0])
-		rt(s);
-	if (n[0] < n[1] && n[1] > n[2] && n[2] > n[0])
+		sa(a);
+	else if (n[0] < n[1] && n[1] > n[2] && n[2] < n[0])
+		rra(a);
+	else if (n[0] > n[1] && n[1] < n[2] && n[2] < n[0])
+		ra(a);
+	else if (n[0] < n[1] && n[1] > n[2] && n[2] > n[0])
 	{
-		rrt(s);
-		sw(s);
+		rra(a);
+		sa(a);
 	}
-	if (n[0] > n[1] && n[1] > n[2] && n[2] < n[0])
+	else if (n[0] > n[1] && n[1] > n[2] && n[2] < n[0])
 	{
-		rt(s);
-		sw(s);
+		ra(a);
+		sa(a);
 	}
 }
 
-// 小さい数字をプッシュして_size3_sortで並び替えして戻す
 static void	_logic_size4(t_dll *a, t_dll *b)
 {
-	size_t	index;
-	size_t	mv_min_r;
-	size_t	mv_min_l;
-
-	index = 0;
-	mv_min_l = a->index(a, a->min(a));
-	mv_min_r = (a->size - mv_min_l) % a->size;
-	while (index < mv_min_r && index < mv_min_l)
-	{
-		if (mv_min_r < mv_min_l)
-			rra(a);
-		else
-			ra(a);
-		index++;
-	}
+	move_min_to_head_a(&a);
 	pb(b, a);
-	_size3_sort(a, sa, ra, rra);
+	_logic_size3(a);
 	pa(a, b);
 }
 
 static void	_logic_size5(t_dll *a, t_dll *b)
 {
-	size_t	index;
-	size_t	mv_min_r;
-	size_t	mv_min_l;
-
-	index = 0;
-	mv_min_l = a->index(a, a->min(a));
-	mv_min_r = (a->size - mv_min_l) % a->size;
-	while (index < mv_min_r && index < mv_min_l)
-	{
-		if (mv_min_r < mv_min_l)
-			rra(a);
-		else
-			ra(a);
-		index++;
-	}
+	move_min_to_head_a(&a);
 	pb(b, a);
 	_logic_size4(a, b);
 	pa(a, b);
@@ -103,9 +73,9 @@ static void	_logic_size5(t_dll *a, t_dll *b)
 void	short_logic(t_dll *a, t_dll *b)
 {
 	if (a->size == 2)
-		_swap(a, sa);
+		_logic_size2(a);
 	if (a->size == 3)
-		_size3_sort(a, sa, ra, rra);
+		_logic_size3(a);
 	if (a->size == 4)
 		_logic_size4(a, b);
 	if (a->size == 5)
