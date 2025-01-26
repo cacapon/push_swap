@@ -6,16 +6,16 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 12:17:36 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/20 14:15:32 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 15:46:12 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	_swap(t_dll *s, void (*sw)(t_dll *))
+static void	_swap(t_dll *a)
 {
-	if (s->head->value > s->head->next->value)
-		sw(s);
+	if (a->head->value > a->head->next->value)
+		sa(a);
 }
 
 /**
@@ -29,29 +29,28 @@ static void	_swap(t_dll *s, void (*sw)(t_dll *))
  * @note	321 -> sw rra
  *
  */
-static void	_size3_sort(t_dll *s, void (*sw)(t_dll *), void (*rt)(t_dll *),
-		void (*rrt)(t_dll *))
+static void	_size3_sort(t_dll *a)
 {
 	int	n[3];
 
-	n[0] = s->head->value;
-	n[1] = s->head->next->value;
-	n[2] = s->head->next->next->value;
+	n[0] = a->head->value;
+	n[1] = a->head->next->value;
+	n[2] = a->head->next->next->value;
 	if (n[0] > n[1] && n[1] < n[2] && n[2] > n[0])
-		sw(s);
+		sa(a);
 	if (n[0] < n[1] && n[1] > n[2] && n[2] < n[0])
-		rrt(s);
+		rra(a);
 	if (n[0] > n[1] && n[1] < n[2] && n[2] < n[0])
-		rt(s);
+		ra(a);
 	if (n[0] < n[1] && n[1] > n[2] && n[2] > n[0])
 	{
-		rrt(s);
-		sw(s);
+		rra(a);
+		sa(a);
 	}
 	if (n[0] > n[1] && n[1] > n[2] && n[2] < n[0])
 	{
-		rt(s);
-		sw(s);
+		ra(a);
+		sa(a);
 	}
 }
 
@@ -74,7 +73,7 @@ static void	_logic_size4(t_dll *a, t_dll *b)
 		index++;
 	}
 	pb(b, a);
-	_size3_sort(a, sa, ra, rra);
+	_size3_sort(a);
 	pa(a, b);
 }
 
@@ -103,9 +102,9 @@ static void	_logic_size5(t_dll *a, t_dll *b)
 void	short_logic(t_dll *a, t_dll *b)
 {
 	if (a->size == 2)
-		_swap(a, sa);
+		_swap(a);
 	if (a->size == 3)
-		_size3_sort(a, sa, ra, rra);
+		_size3_sort(a);
 	if (a->size == 4)
 		_logic_size4(a, b);
 	if (a->size == 5)
