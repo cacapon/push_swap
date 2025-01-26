@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/26 14:41:55 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 16:09:50 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,26 @@ static void	push_back_a(t_dll *a, t_dll *b)
 	}
 }
 
+static void	calculate_and_execute(t_dll *stack_a, t_dll *stack_b)
+{
+	size_t		ite;
+	t_cmd_mv	*cmd_moves;
+	t_cmd_mv	min_mv;
+
+	ite = 0;
+	cmd_moves = ft_calloc(stack_a->size, sizeof(t_cmd_mv));
+	if (!cmd_moves)
+		return ;
+	while (ite < stack_a->size)
+	{
+		cmd_moves[ite] = get_cmd_mv(ite, stack_a, stack_b);
+		ite++;
+	}
+	min_mv = get_min_mv(cmd_moves, stack_a->size);
+	exec_cmd(&stack_a, &stack_b, min_mv);
+	free(cmd_moves);
+}
+
 /*
 	aがなくなるまで
 		xをプッシュするために必要なa,bの移動量を求める (a<,a>,b<,b>)...[0]
@@ -43,23 +63,8 @@ static void	push_back_a(t_dll *a, t_dll *b)
 */
 void	select_insert_sort(t_dll *stack_a, t_dll *stack_b)
 {
-	size_t		ite;
-	t_cmd_mv	*cmd_moves;
-	t_cmd_mv	min_mv;
-
 	while (stack_a->size > 5)
-	{
-		ite = 0;
-		cmd_moves = ft_calloc(stack_a->size, sizeof(t_cmd_mv));
-		while (ite < stack_a->size)
-		{
-			cmd_moves[ite] = get_cmd_mv(ite, stack_a, stack_b);
-			ite++;
-		}
-		min_mv = get_min_mv(cmd_moves, stack_a->size);
-		exec_cmd(&stack_a, &stack_b, min_mv);
-		free(cmd_moves);
-	}
+		calculate_and_execute(stack_a, stack_b);
 	short_logic(stack_a, stack_b);
 	move_max_to_head(&stack_b);
 	push_back_a(stack_a, stack_b);
