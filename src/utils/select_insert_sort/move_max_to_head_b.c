@@ -6,13 +6,13 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/19 21:48:24 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 16:23:28 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	move_max_to_head(t_dll **b)
+void	move_max_to_head_b(t_dll **b)
 {
 	int			cmd_mv;
 	int			b_max_mv[2];

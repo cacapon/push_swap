@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/26 16:13:58 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 16:25:42 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	select_insert_sort(t_dll *stack_a, t_dll *stack_b)
 	while (stack_a->size > 5)
 		calculate_and_execute(stack_a, stack_b);
 	short_logic(stack_a, stack_b);
-	move_max_to_head(&stack_b);
+	move_max_to_head_b(&stack_b);
 	push_back_a(stack_a, stack_b);
-	move_min_to_head(&stack_a);
+	move_min_to_head_a(&stack_a);
 }

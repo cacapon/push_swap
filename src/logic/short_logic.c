@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 12:17:36 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/26 15:59:01 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 16:26:45 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	_logic_size3(t_dll *a)
 
 static void	_logic_size4(t_dll *a, t_dll *b)
 {
-	move_min_to_head(&a);
+	move_min_to_head_a(&a);
 	pb(b, a);
 	_logic_size3(a);
 	pa(a, b);
@@ -64,7 +64,7 @@ static void	_logic_size4(t_dll *a, t_dll *b)
 
 static void	_logic_size5(t_dll *a, t_dll *b)
 {
-	move_min_to_head(&a);
+	move_min_to_head_a(&a);
 	pb(b, a);
 	_logic_size4(a, b);
 	pa(a, b);

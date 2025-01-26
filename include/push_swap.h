@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:32:57 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/26 16:13:27 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 16:26:27 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int			get_a_left_mv(int value, t_dll *a);
 int			get_b_left_mv(int value, t_dll *b);
 t_cmd_mv	get_cmd_mv(size_t ite, t_dll *a, t_dll *b);
 t_cmd_mv	get_min_mv(t_cmd_mv *cmd_moves, size_t size);
-void		move_max_to_head(t_dll **s);
-void		move_min_to_head(t_dll **s);
+void		move_max_to_head_b(t_dll **a);
+void		move_min_to_head_a(t_dll **b);
 
 // prototype
 
