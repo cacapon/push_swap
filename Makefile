@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/26 16:25:28 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/26 16:53:00 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,7 @@ init:
 	else \
 		echo "Submodules are already up to date."; \
 	fi
+	$(MAKE) -C $(LIBFT_PATH) init
 
 
 $(NAME): $(OBJS) $(LIBFT_PATH)$(LIBFT)
