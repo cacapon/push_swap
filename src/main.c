@@ -6,19 +6,11 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 20:47:52 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/20 12:19:02 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/26 14:50:39 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static t_dll	*_init_stack(void)
-{
-	t_dll	*stack;
-
-	stack = init_dll();
-	return (stack);
-}
 
 static t_push_swap_err	_setup_stack_a(int argc, char **argv, t_dll **stack)
 {
@@ -71,8 +63,8 @@ int	main(int argc, char **argv)
 
 	if (argc <= 1)
 		return (0);
-	stack_a = _init_stack();
-	stack_b = _init_stack();
+	stack_a = init_dll();
+	stack_b = init_dll();
 	if (_setup_stack_a(argc, argv, &stack_a) != PSW_OK)
 		return (_free_stacks(&stack_a, &stack_b), ft_printf("Error\n"), 1);
 	if (_is_sorted(stack_a) == PSW_OK)
