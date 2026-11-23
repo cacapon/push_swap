@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2026/11/23 06:14:07 by ttsubo           ###   ########.fr       */
+/*   Updated: 2026/11/23 06:57:02 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ static void _set_mv_a_count(int ite, int mv_a[2], t_dll *a) {
   mv_a[1] = (a->size - mv_a[0]) % a->size;
 }
 
-static void _set_mv_b_count(int ite, int mv_b[2], t_dll *a, t_dll *b) {
+static void _set_mv_b_count(int value, int mv_b[2], t_dll *b) {
   if (b->size == 0) {
     mv_b[0] = 0;
     mv_b[1] = 0;
     return;
   }
-  mv_b[0] = get_b_left_mv(a->get(a, ite), b);
+  mv_b[0] = get_b_left_mv(value, b);
   mv_b[1] = (b->size - mv_b[0]) % b->size;
 }
 
@@ -62,13 +62,13 @@ static t_cmd_mv _set_result(int mv_a[2], int mv_b[2]) {
  * @param b
  * @return t_cmd_mv
  */
-t_cmd_mv get_cmd_mv(size_t ite, t_dll *a, t_dll *b) {
+t_cmd_mv get_cmd_mv(size_t ite, int value, t_dll *a, t_dll *b) {
   int mv_a[2];
   int mv_b[2];
   t_cmd_mv result;
 
   _set_mv_a_count(ite, mv_a, a);
-  _set_mv_b_count(ite, mv_b, a, b);
+  _set_mv_b_count(value, mv_b, b);
   result = _set_result(mv_a, mv_b);
   return (result);
 }

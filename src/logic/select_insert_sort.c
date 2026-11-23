@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2026/11/23 06:47:29 by ttsubo           ###   ########.fr       */
+/*   Updated: 2026/11/23 06:59:33 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,19 @@ static void push_back_a(t_dll *a, t_dll *b) {
 
 static void calculate_and_execute(t_dll *stack_a, t_dll *stack_b) {
   size_t ite;
+  t_dll_node *node;
   t_cmd_mv current;
   t_cmd_mv min_mv;
 
-  min_mv = get_cmd_mv(0, stack_a, stack_b);
+  node = stack_a->head;
+  min_mv = get_cmd_mv(0, node->value, stack_a, stack_b);
+  node = node->next;
   ite = 1;
   while (ite < stack_a->size) {
-    current = get_cmd_mv(ite, stack_a, stack_b);
+    current = get_cmd_mv(ite, node->value, stack_a, stack_b);
     if (current.total < min_mv.total)
       min_mv = current;
+    node = node->next;
     ite++;
   }
   rotate_and_push_b(&stack_a, &stack_b, min_mv);
