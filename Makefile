@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 20:39:41 by ttsubo            #+#    #+#              #
-#    Updated: 2026/11/23 06:50:35 by ttsubo           ###   ########.fr        #
+#    Updated: 2026/11/23 07:48:05 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SRC_DLL		= add_dll.c append_dll.c free_dll.c init_dll.c \
 			  max_dll.c min_dll.c index_dll.c get_dll.c is_sorted_dll.c
 SRC_LOGIC	= select_insert_sort.c short_logic.c 
 SRC_SELECT_INSERT_SORT_UTILS	= rotate_and_push_b.c get_a_left_mv.c get_b_left_mv.c \
-			  get_cmd_mv.c move_max_to_head_b.c move_min_to_head_a.c
+			  get_cmd_mv.c move_max_to_head_b.c move_min_to_head_a.c lookahead_cost.c simulate_stack.c
 SRC_CMD		= push.c rotate.c rv_rotate.c swap.c
 SRCS		= 	$(addprefix $(SRC_PATH), $(SRC_MAIN)) \
 				$(addprefix $(SRC_UTILS_PATH), $(SRC_UTILS)) \
