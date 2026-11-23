@@ -6,35 +6,33 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:27:46 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/24 16:39:19 by ttsubo           ###   ########.fr       */
+/*   Updated: 2026/11/23 06:37:45 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /**
- * @brief stack_aに対してvalueを挿入するのに必要な左方向のシフト回数を取得します。
- * 
- * @param value 
- * @param a 
- * @return int 
+ * @brief
+ * stack_aに対してvalueを挿入するのに必要な左方向のシフト回数を取得します。
+ *
+ * @param value
+ * @param a
+ * @return int
  */
-int	get_a_left_mv(int value, t_dll *a)
-{
-	int		mv;
-	size_t	i;
-	size_t	i_nx;
+int get_a_left_mv(int value, t_dll *a) {
+  t_dll_node *node;
+  size_t i;
 
-	mv = 0;
-	if (a->size < 2)
-		return (mv);
-	i = 0;
-	while (i < a->size)
-	{
-		i_nx = (i + 1) % a->size;
-		if (a->get(a, i) < value && value < a->get(a, i_nx))
-			return (i_nx);
-		i++;
-	}
-	return (a->index(a, a->min(a)));
+  if (a->size < 2)
+    return (0);
+  node = a->head;
+  i = 0;
+  while (i < a->size) {
+    if (node->value < value && value < node->next->value)
+      return ((i + 1) % a->size);
+    node = node->next;
+    i++;
+  }
+  return (a->index(a, a->min(a)));
 }
